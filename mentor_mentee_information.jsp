@@ -1,4 +1,5 @@
 <%@ page import="java.io.*,java.util.Date,java.text.SimpleDateFormat,java.sql.*,javax.servlet.*,javax.servlet.http.*" %>
+
 <%
 //global object declaration section
     Connection conn = null;
@@ -50,7 +51,8 @@
 		mentor_rs.next();
 		
 		
-%><!--DOCTYPE html-->
+%>
+<!--DOCTYPE html-->
 <html lang="en">
 <head>
 
@@ -96,7 +98,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb" style="background-color:transparent">
         <li class="breadcrumb-item">
-          <a href="index.html">Home</a>
+          <a href="index.jsp" target="_top">Home</a>
         </li>
         <li class="breadcrumb-item active">Mentoring&nbsp; / &nbsp;Mentor-Mentee Information</li>
       </ol>

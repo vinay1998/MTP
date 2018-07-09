@@ -60,18 +60,14 @@
 								</div><br>
 								
 								<center><button type="submit" class="btn btn-primary" name="reset">Reset</button></center>	
-								<input class="form-control" id="aadhar_card_number" name="aadhar_card_number" type="text"value="<%=request.getSession().getAttribute("aadhar_number")%>">
+								<input class="form-control" id="aadhar_card_number" name="aadhar_card_number" type="hidden" value="<%=request.getSession().getAttribute("aadhar_number")%>">
 							</div>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
-	</div>
-	
-	
-
-	
+	</div>	
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

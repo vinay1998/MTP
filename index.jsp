@@ -188,10 +188,10 @@
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
 
 			 <li>
-              <a href="mentor_mentee_information.html" target="pages">Mentor - Mentee Information</a>
+              <a href="mentor_mentee_information.jsp" target="pages">Mentor - Mentee Information</a>
             </li>
 			<li>
-              <a href="mentor_mentee_overview.html" target="pages">Mentor - Mentee Overview</a>
+              <a href="mentor_mentee_overview.jsp" target="pages">Mentor - Mentee Overview</a>
             </li>
             <li>
               <a href="mentor_mentee_meetings.jsp" target="pages">Mentor - Mentee Meetings</a>
@@ -302,7 +302,7 @@
 				  </a>
 		</li>
 		<li class="nav-item " data-toggle="tooltip" data-placement="right" title="Change Password" style="padding-top:1em;padding-bottom:1em;">
-				  <a class="nav-link-sub hover-color" href="changepassword.html" target="pages"  >
+				  <a class="nav-link-sub hover-color" href="changepassword.jsp" target="pages"  >
 					<i class="fa fa-edit "></i>
 					<span class="nav-link-text " >Change Password</span>
 				  </a>
@@ -464,7 +464,7 @@
 	  <span class="line line-9"></span>
 	  <div style="color:white">Loading</div>
 	</div>
-	<br/><br/><br/><br/>
+	<br/><br/><br/>
 	<div class="container-fluid contents" id="frame" style="position:relative;max-width:100%">
       <iframe class="" src="record_of_mentor_mentee_meetings.html" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" frameborder="0" name="pages" id="pages" ></iframe>
 	</div>

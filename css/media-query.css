@@ -1,0 +1,97 @@
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    .hide {
+        display: none;
+    }
+    .nothide {
+        display: inline-block;
+    }
+}
+
+
+/* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+
+@media (min-width: 1154px) and (max-width: 1280px) {
+    .hide {
+        display: none;
+    }
+    .nothide {
+        display: inline-block;
+    }
+}
+
+
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+
+@media (min-width: 992px) and (max-width: 1153px) {
+    .nothide {
+        display: inline-block;
+    }
+    .hide {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .hide {
+        display: inline-block;
+    }
+    .nothide {
+        display: none;
+    }
+}
+
+
+/* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .hide {
+        display: inline-block;
+    }
+    .nothide {
+        display: none;
+    }
+}
+
+
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .hide {
+        display: inline-block;
+    }
+    .nothide {
+        display: none;
+    }
+}
+
+
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+
+@media (max-width: 480px) {
+    .hide {
+        display: inline-block;
+    }
+    .nothide {
+        display: none;
+    }
+}

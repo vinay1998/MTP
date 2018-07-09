@@ -1,0 +1,73 @@
+import java.io.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.sql.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class login_reset_password extends HttpServlet
+{
+  public void service(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
+  {
+
+	//global object declaration section
+    Connection conn = null;
+	Statement stmt = null;
+	Statement stmt2 = null;
+	ResultSet rs=null;
+	PrintWriter out = res.getWriter();
+	res.setContentType("text/html");
+
+	//date calculation
+	java.util.Date date=new java.util.Date();
+	java.sql.Timestamp sqlTime=new java.sql.Timestamp(date.getTime());
+
+	//jdbc logic section
+	try
+    {
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		String dbURL = "jdbc:sqlserver://10.45.29.254;DatabaseName=VNR_Students_Record";
+        String user = "sa";
+        String pass = "vnrvjiet1@3";
+        conn = DriverManager.getConnection(dbURL, user, pass);
+		stmt = conn.createStatement();
+		stmt2 = conn.createStatement();
+
+		if(req.getParameter("reset_pass")!=null)
+		{
+			String aadhar_card_number = req.getParameter("aadhar_card_number");
+			String new_password = req.getParameter("new_password");
+			
+			stmt.executeUpdate("Update Login set Login_Password='"+new_password+"', Updated_On='"+sqlTime+"' where Login_Aadhar='"+aadhar_card_number+"'");
+
+			ResultSet user_details=stmt.executeQuery("Select Login_Type,Login_UserId from Login where Login_Aadhar='"+aadhar_card_number+"'");
+			user_details.next();
+
+			req.getSession().setAttribute("user_id",user_details.getString(2));
+
+			if(user_details.getString(1).equals("Mentee"))
+			{
+				ResultSet user_name=stmt2.executeQuery("Select Student_Name from Student_Master_Information where Student_Code='"+user_details.getString(2)+"'");
+				if(user_name.next())
+				{
+					res.sendRedirect("index.jsp");
+				}
+				else
+				{
+					res.sendRedirect("studentmasterinfo.jsp");
+				}
+			}
+			else if(user_details.getString(1).equals("Mentor"))
+				out.print("<h3>Hello!Mentor</h3>");
+			else if(user_details.getString(1).equals("Admin"))
+				out.print("<h3>Hello!Admin</h3>");	
+		}
+		stmt.close();
+		conn.close();
+    }
+    catch(Exception e)
+	{
+		out.print(e);
+	} 
+  }
+}

@@ -121,7 +121,7 @@
 				</div>
 				<div class="col-sm-4">
 					<label for="rollno"><b>Name:</b></label>
-					<input class="form-control" id="studentname" type="text" value="<%=(String)request.getSession().getAttribute("user_name")%> style="background-color:white;" readonly>
+					<input class="form-control" id="studentname" type="text" value="<%=(String)request.getSession().getAttribute("user_name")%>" style="background-color:white;" readonly>
 				</div>
 				<div class="col-sm-2">
 					<label for="rollno"><b>Roll No:</b></label>

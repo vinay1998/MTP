@@ -49,7 +49,7 @@ public class mentor_mentee_meetings_update extends HttpServlet
 		rs_date = stmt_date.executeQuery("SELECT Date_Of_Interaction FROM Student_Mentor_Mentee_Meetings where Years="+year+" and Semester="+semester+"order by Mentor_Mentee_Meeting_ID desc");
 
 	//table head code
-		out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
+		out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'><link rel='stylesheet' type='text/css' href='fonts/font-awesome-4.7.0/css/font-awesome.min.css'><link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.1.0/css/regular.css' integrity='sha384-avJt9MoJH2rB4PKRsJRHZv7yiFZn8LrnXuzvmZoD3fh1aL6aM6s0BBcnCvBe6XSD' crossorigin='anonymous'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 		out.print("<link href='css/bootstrap-date-edit.css' rel='stylesheet'><link href='css/bootstrap-datetimepicker.min.css' rel='stylesheet'></head>");//datepicker css links
 		out.print("<body class='sfbg'><form action='update_save' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");		
 		out.print("<div class='col-sm-3'><th>Date of Interaction</th></div><div class='col-sm-7'><th>Remarks / Advice / Guidance</th></div><div class='col-sm-2'><th></th></div>");				
@@ -63,12 +63,12 @@ public class mentor_mentee_meetings_update extends HttpServlet
 			if(req.getParameter(String.valueOf(rs.getInt(3)))!=null)
 			{
 				out.print("<tr class='tbodyrow'> <div class='col-sm-3'><td><div class='controls input-append date form_date' data-date='' data-date-format='dd-mm-yyyy' data-link-field='id_date' data-link-format='yyyy-mm-dd'><p><input class=' form-control' type='text' value='"+rs.getString(1)+"' Style='background-color: white;' placeholder='dd-mm-yyyy' id='id_dateofinteraction'readonly><span class='add-on'><i class='fa fa-calendar'></i></span></p></div><input type='hidden' value='"+rs_date.getString(1)+"' name='dateofinteraction' id='id_date' value=''/></td></div>");
-				out.print("<div class='col-sm-7'><td><textarea class='form-control' rows='5' cols='80' name='remarks'>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-2'><td><button type='submit' class='btn btn-primary' name='update' value='"+rs.getString(3)+"'>Update</button></td></div></tr>");			
+				out.print("<div class='col-sm-7'><td><textarea class='form-control' rows='5' cols='80' name='remarks'>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-2'><td><button type='submit' class='btn btn-success' name='update' value='"+rs.getString(3)+"'><i class='far fa-check-circle' style='font-size:25px;'></i></button></td></div></tr>");			
 
 			}
 			else
 			{
-				out.print("<tr class='tbodyrow'><div class='col-sm-3'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><textarea class='form-control' rows='4' cols='80' disabled>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-2'><td><button disabled type='button' class='btn btn-primary' name='"+rs.getInt(3)+"'>Edit</button></td></div></tr>");			
+				out.print("<tr class='tbodyrow'><div class='col-sm-3'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><textarea class='form-control' rows='4' cols='80' disabled>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-2'><td><button disabled type='submit' class='btn btn-primary btn-sm' name='"+rs.getInt(3)+"'><span class='glyphicon glyphicon-pencil' style='font-size:25px;'></span></button></td></div></tr>");			
 			
 			}
 			

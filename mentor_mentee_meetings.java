@@ -51,7 +51,7 @@ public class mentor_mentee_meetings extends HttpServlet
 			String sql2 = "SELECT convert(varchar,Date_Of_Interaction,105),Remarks_Advice_Guidance,Mentor_Mentee_Meeting_ID FROM Student_Mentor_Mentee_Meetings where Years="+year+" and Semester="+semester+" and Student_Code='"+roll_no+"' order by Mentor_Mentee_Meeting_ID desc";
 			rs = stmt.executeQuery(sql2);
 
-			out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
+			out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 
 			out.print("<body class='sfbg' ><form action='update' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
 					
@@ -60,7 +60,7 @@ public class mentor_mentee_meetings extends HttpServlet
 			out.print("</tr></div></thead><tbody><div class='row'>");	
 			while(rs.next())
 			{	
-				out.print("<tr class='tbodyrow'><div class='col-sm-3'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><textarea class='form-control' rows='4' cols='80' disabled>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-2'><td><button type='submit' class='btn btn-primary' name='"+rs.getInt(3)+"'>Edit</button></td></div></tr>");			
+				out.print("<tr class='tbodyrow'><div class='col-sm-3'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><textarea class='form-control' rows='4' cols='80' disabled>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-2'><td><button type='submit' class='btn btn-primary btn-sm' name='"+rs.getInt(3)+"'><span class='glyphicon glyphicon-pencil' style='font-size:25px;'></span></button></td></div></tr>");			
 			
 			}
 			out.print("</div></tbody></table><input type=hidden name='year' value='"+year+"'/><input type=hidden name='semester' value='"+semester+"'/><input type=hidden name='rollno' value='"+roll_no+"'/></form></body></html>");
@@ -87,7 +87,7 @@ public class mentor_mentee_meetings extends HttpServlet
 			String sql2 = "SELECT convert(varchar,Date_Of_Interaction,105),Remarks_Advice_Guidance,Mentor_Mentee_Meeting_ID FROM Student_Mentor_Mentee_Meetings where Years="+year+" and Semester="+semester+" and Student_Code='"+roll_no+"'order by Mentor_Mentee_Meeting_ID desc";
 			rs = stmt.executeQuery(sql2);
 
-			out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
+			out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 
 			out.print("<body class='sfbg'><form action='update' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
 					
@@ -96,7 +96,7 @@ public class mentor_mentee_meetings extends HttpServlet
 			out.print("</tr></div></thead><tbody><div class='row'>");	
 			while(rs.next())
 			{	
-				out.print("<tr class='tbodyrow'><div class='col-sm-3'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><textarea class='form-control' rows='4' cols='80' disabled>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-2'><td><button type='submit' class='btn btn-primary' name='"+rs.getInt(3)+"'>Edit</button></td></div></tr>");			
+				out.print("<tr class='tbodyrow'><div class='col-sm-3'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><textarea class='form-control' rows='4' cols='80' disabled>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-2'><td><button type='submit' class='btn btn-primary btn-sm' name='"+rs.getInt(3)+"'><span class='glyphicon glyphicon-pencil' style='font-size:25px;'></span></button></td></div></tr>");			
 			
 			}
 			out.print("</div></tbody></table><input type=hidden name='year' value='"+year+"'/><input type=hidden name='semester' value='"+semester+"'/><input type=hidden name='rollno' value='"+roll_no+"'/></form></body></html>");
@@ -116,7 +116,7 @@ public class mentor_mentee_meetings extends HttpServlet
 			if(rs.isBeforeFirst())
 			{
 
-				out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
+				out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 
 				out.print("<body class='sfbg'><form action='update' target='_self' ><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
 				
@@ -125,7 +125,7 @@ public class mentor_mentee_meetings extends HttpServlet
 				out.print("</tr></div></thead><tbody><div class='row'>");	
 				while(rs.next())
 				{	
-					out.print("<tr class='tbodyrow'><div class='col-sm-3'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><textarea class='form-control' rows='4' cols='80' disabled>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-2'><td><button type='submit' class='btn btn-primary' name='"+rs.getInt(3)+"'>Edit</button></td></div></tr>");			
+					out.print("<tr class='tbodyrow'><div class='col-sm-3'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><textarea class='form-control' rows='4' cols='80' disabled>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-2'><td><button type='submit' class='btn btn-primary btn-sm' name='"+rs.getInt(3)+"'><span class='glyphicon glyphicon-pencil' style='font-size:25px;'></span></button></td></div></tr>");			
 							
 				}
 				

@@ -1,16 +1,10 @@
 <%@ page import="java.io.*,java.util.Date,java.text.SimpleDateFormat,java.sql.*,javax.servlet.*,javax.servlet.http.*" %>
-<% 
-
-	//global object declaration section
+<%
+//global object declaration section
     Connection conn = null;
-	Statement stmt = null;
-	Statement date_st = null;
-	Statement date_activity_st=null;
-	Statement activity_st=null;
-	ResultSet rs=null;
-	ResultSet rs2=null;
+	Statement mentor_stmt = null;
+	Statement mentee_stmt = null;
 	response.setContentType("text/html");
-	String sno="15071A1245";
 	
 
 	//jdbc logic section
@@ -19,24 +13,44 @@
 		String dbURL = "jdbc:sqlserver://10.45.29.254;DatabaseName=VNR_Students_Record";
         String user = "sa";
         String pass = "vnrvjiet1@3";
-        conn = DriverManager.getConnection(dbURL, user, pass);
-		stmt = conn.createStatement();
-		date_st=conn.createStatement();
-		String sql= "select Student_Name,Student_Code,EAMCET_ECET,Branch from Student_Master_Information where Student_Code='"+sno+"'";
-		rs=stmt.executeQuery(sql);
+		String mentor_id="";
+        String from_date="";
+		conn = DriverManager.getConnection(dbURL, user, pass);
+		mentee_stmt = conn.createStatement();
+		mentor_stmt = conn.createStatement();
+		ResultSet mentee_rs=mentee_stmt.executeQuery("select EAMCET_ECET,Branch,Mentor1_ID,Mentor2_ID,Mentor3_ID,From_Date1,From_Date2,From_Date3 from Student_Master_Information where Student_Code='"+(String)request.getSession().getAttribute("user_id")+"'");
+		mentee_rs.next();
+		if(mentee_rs.getString(5)!=null)
+		{
+		mentor_id=mentee_rs.getString(5);
+		}
+		else if(mentee_rs.getString(4)!=null)
+		{
+		mentor_id=mentee_rs.getString(4);	
+		}
+		else{
+		mentor_id=mentee_rs.getString(3);		
+		}
 		
-		String sql2="select Staff_name,Date_Of_Birth,Designation,Academic_Qualification,Papers_National,Papers_International,Conferences_National,Conferences_International, Memberships_Of_Prof_Bodies,Consultations,Research_Interests,Other_Interests from Staff_Master where Staff_Code in (select Mentor_ID from Student_Master_Information where Student_Code='"+sno+"'";
-
-		rs2=date_st.executeQuery(sql2);
+		if(mentee_rs.getString(8)!=null)
+		{
+		from_date=mentee_rs.getString(8);
+		}
+		else if(mentee_rs.getString(7)!=null)
+		{
+		from_date=mentee_rs.getString(7);	
+		}
+		else{
+		from_date=mentee_rs.getString(6);		
+		}
+		mentor_stmt = conn.createStatement();
 		
-
-		rs2.next();
-		rs.next();
-		if(rs==null)
-			out.print("no details filled");
 		
-%>
-<!DOCTYPE html>
+		ResultSet mentor_rs=mentor_stmt.executeQuery("select Staff_Name,Date_Of_Birth,Designation,Academic_Qualification,Papers_National,Papers_International,Conferences_National,Conferences_International,Memberships_Of_Prof_Bodies,Consultations,Research_Interests,Other_Interests from Staff_Master where Staff_Code='"+mentor_id+"'");
+		mentor_rs.next();
+		
+		
+%><!--DOCTYPE html-->
 <html lang="en">
 <head>
 
@@ -76,22 +90,22 @@
 </head>
 
 
-<body>
+<body id="page-top">
 
-    <div class="container-fluid"><br>
+    
       <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
+      <ol class="breadcrumb" style="background-color:transparent">
         <li class="breadcrumb-item">
           <a href="index.html">Home</a>
         </li>
         <li class="breadcrumb-item active">Mentoring&nbsp; / &nbsp;Mentor-Mentee Information</li>
       </ol>
       <!-- main content-->
-	  <!--h1> <font color="dodgerblue"><center>ECA Activities</center></font>
-	</h1>-->
+	  
+	<div class="container">
 	<form method="post" action="mentormenteeinformation">
-		<div class="container-table100">
-		<div class="container">
+		
+		
 		<table class="table table-hover">
 		<thead>
 			
@@ -107,19 +121,19 @@
 				</div>
 				<div class="col-sm-4">
 					<label for="rollno"><b>Name:</b></label>
-					<input class="form-control" id="studentname" value="<%=rs.getString(1)%>" type="text">
+					<input class="form-control" id="studentname" type="text" value="<%=(String)request.getSession().getAttribute("user_name")%> style="background-color:white;" readonly>
 				</div>
 				<div class="col-sm-2">
 					<label for="rollno"><b>Roll No:</b></label>
-					<input class="form-control" id="rollno" value="<%=rs.getString(2)%>" type="text">
+					<input class="form-control" id="rollno" value="<%=(String)request.getSession().getAttribute("user_id")%>"type="text" style="background-color:white;" readonly>
 				</div>
 				<div class="col-sm-2">
 					<label for="studentname"><b>TS EAMCET Rank:</b></label>
-					<input class="form-control" id="studentname" value="<%=rs.getString(3)%>" type="text">
+					<input class="form-control" id="studentname" value="<%=mentee_rs.getString(1)%>" type="text" style="background-color:white;" readonly>
 				</div>
 				<div class="col-sm-2">
 					<label for="studentname"><b>Branch:</b></label>
-					<input class="form-control" id="studentname" value="<%=rs.getString(4)%>" type="text">
+					<input class="form-control" id="studentname" value="<%=mentee_rs.getString(2)%>" type="text" style="background-color:white;" readonly>
 				</div>
 				
 				</div>
@@ -128,40 +142,21 @@
 			<tr class="tbodyrow">
 			<td>
 			<h3 style="color:dodgerblue;"><center>Mentor Information</center></h3><br>
-			<div class="row">
-
-				<div style='text-align:right;'class="col-sm-2">
-					<label for="from"><b>Period:&nbsp;From:</b></label>
-				</div>
-				<div style='text-align:right;' class="col-sm-3">
-					<input class="form-control" id="from" type="text" placeholder="dd-mm-yyyy">
-				</div>
-				<div  style='text-align:right;'class="col-sm-3">
-					<label for="age"><b>To:</b></label>
-				</div>
-				<div class="col-sm-3">
-					<input class="form-control" id="age" type="text" placeholder="dd-mm-yyyy">
-				</div>
-			</div>	<br>
+			
 			<div class="row">
 				<div style='text-align:right;' class="col-sm-2">
 					<label for="designation"><b>  Name:</b></label>
 				</div>
 				<div class="col-sm-3">
-					<input class="form-control" id="name" value="<%=rs2.getString(1)%>" type="text" >
+					<input class="form-control" id="name" value="<%=mentor_rs.getString(1)%>" type="text" style="background-color:white;" readonly >
 				</div>
-				<div style='text-align:right;'class="col-sm-2">
-					<label for="dob"><b> Date of Birth:</b></label>
+				<div style='text-align:right;' class="col-sm-2">
+					<label for="designation"><b>  Staff ID:</b></label>
 				</div>
-				<div class="col-sm-2">
-					<input class="form-control" id="dob" value="<%=rs2.getString(2)%>" type="text">
+				<div class="col-sm-3">
+					<input class="form-control" id="name" value="<%=mentor_id%>" type="text" style="background-color:white;" readonly >
 				</div>
-				<div style='text-align:right;'class="col-sm-1">
-					<label for="age"><b> Age:</b></label>
-				</div>
-				<div class="col-sm-1">
-					<input class="form-control" id="age" type="text">
-				</div>
+				
 			</div><br>
 			<div class="row">
 
@@ -170,16 +165,37 @@
 					<label for="designation"><b>Designation:</b></label>
 				</div>
 				<div class="col-sm-3">
-					<input class="form-control" id="age" value="<%=rs2.getString(3)%>" type="text">
+					<input class="form-control" id="designation" value="<%=mentor_rs.getString(3)%>" type="text"  style="background-color:white;" readonly>
 				</div>
 				<div style='text-align:right;'class="col-sm-3">
 					<label for="qualification"><b>Academic Qualification:</b></label>
 				</div>
 				<div class="col-sm-3">
-					<input class="form-control" id="qualification" value="<%=rs2.getString(4)%>" type="text">
+					<input class="form-control" id="qualification" value="<%=mentor_rs.getString(4)%>" type="text" style="background-color:white;" readonly>
 				</div>
 				
-			</div>
+			</div><br>
+			<div class="row">
+
+				<div style='text-align:right;'class="col-sm-2">
+					<label for="from"><b>&nbsp;From:</b></label>
+				</div>
+				<div style='text-align:right;' class="col-sm-3">
+					<input class="form-control" id="from" type="text" value="<%=from_date%>" placeholder="dd-mm-yyyy"  style="background-color:white;" readonly>
+				</div>
+				<div style='text-align:right;'class="col-sm-2">
+					<label for="dob"><b> Date of Birth:</b></label>
+				</div>
+				<div class="col-sm-2">
+					<input class="form-control" id="dob" value="<%=mentor_rs.getString(2)%>" type="text" style="background-color:white;" readonly>
+				</div>
+				<div style='text-align:right;'class="col-sm-1">
+					<label for="age"><b> Age:</b></label>
+				</div>
+				<div class="col-sm-1">
+					<input class="form-control" id="age" type="text" value="" style="background-color:white;" readonly>
+				</div>
+			</div>	
 			<br>
 			<table class="table table-hover">
 				<thead>
@@ -191,8 +207,8 @@
 					<tr class="tbodyrow"><td style='font-size: 18px;color: #000;line-height: 1.2;font-weight: unset;'colspan='2'><center><strong>Papers Published</strong></center></th></tr>
 					<tr>
 						<div class="row">
-							<th><div><label for="comment"><strong>National</strong></label><textarea class="form-control" rows="3" id="ambition" value="<%=rs2.getString(5)%>"></textarea></div></th>
-							<th><div><label for="comment"><strong>International</strong></label><textarea class="form-control" rows="3" id="goals" value="<%=rs2.getString(6)%>"></textarea></div></th>
+							<th><div><label for="comment"><strong>National</strong></label><textarea class="form-control" rows="3" id="ambition"  style="background-color:white;" readonly><%=mentor_rs.getString(5)%></textarea></div></th>
+							<th><div><label for="comment"><strong>International</strong></label><textarea class="form-control" rows="3" id="goals"  style="background-color:white;" readonly><%=mentor_rs.getString(6)%></textarea></div></th>
 						</div>
 					</tr>	
 					</tbody>
@@ -204,8 +220,8 @@
 				<tbody>
 					<tr>
 						<div class="row">
-							<td><div><label for="comment"><strong>National</strong></label><textarea class="form-control" rows="3" id="strengths&enhancement" value="<%=rs2.getString(7)%>"></textarea></div></td>
-							<td><div><label for="comment"><strong>International</strong></label><textarea class="form-control" rows="3" id="weakness&corrections" value="<%=rs2.getString(8)%>"></textarea></div></td>
+							<td><div><label for="comment"><strong>National</strong></label><textarea class="form-control" rows="3" id="strengths&enhancement"  style="background-color:white;" readonly><%=mentor_rs.getString(7)%></textarea></div></td>
+							<td><div><label for="comment"><strong>International</strong></label><textarea class="form-control" rows="3" id="weakness&corrections"  style="background-color:white;" readonly><%=mentor_rs.getString(8)%></textarea></div></td>
 						</div>
 					</tr>
 					</tbody>
@@ -213,30 +229,30 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<label for="studentname"><b>Memberships of Professional Bodies:</b></label>
-					<textarea class="form-control" rows="3" id="goals" value="<%=rs2.getString(9)%>"></textarea>
+					<textarea class="form-control" rows="3" id="goals" style="background-color:white;" readonly><%=mentor_rs.getString(9)%></textarea>
 				</div>
 				<div class="col-sm-6">
 					<label for="consultations"><b>Consultations:</b></label>
-					<textarea class="form-control" rows="3" id="goals" value="<%=rs2.getString(10)%>"></textarea>
+					<textarea class="form-control" rows="3" id="goals"  style="background-color:white;" readonly><%=mentor_rs.getString(10)%></textarea>
 				</div>
 			</div><br>
 			
 			<div class="row">
 				<div class="col-sm-6">
 					<label for="studentname"><b>Research Interests:</b></label>
-					<textarea class="form-control" rows="3" id="goals" value="<%=rs2.getString(11)%>"></textarea>
+					<textarea class="form-control" rows="3" id="goals" style="background-color:white;" readonly><%=mentor_rs.getString(11)%></textarea>
 				</div>
 				<div class="col-sm-6">
 					<label for="studentname"><b>Other Interests:</b></label>
-					<textarea class="form-control" rows="3" id="goals" value="<%=rs2.getString(12)%>"></textarea>
+					<textarea class="form-control" rows="3" id="goals" style="background-color:white;" readonly><%=mentor_rs.getString(12)%></textarea>
 				</div>
 			</div>	
 			
 			</td></tr></tbody></table>
-		</div>
+		
 	</form>
-	</br></br>
-      
+	</div>
+	
       
       
       
@@ -247,26 +263,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="Login\login.html">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
-	</div>
-	</div>
+    
    <!--=====================================Script links==============================================-->
 	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
     <script src="js\bootstrap.bundle.js"></script>
@@ -338,4 +335,3 @@
 </body>
 
 </html>
-

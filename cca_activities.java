@@ -42,7 +42,7 @@ public class cca_activities extends HttpServlet
 		stmt2 = conn.createStatement();
 
 		//html common part html head complete part and body starting part
-		out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
+		out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'><link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.1.0/css/regular.css' integrity='sha384-avJt9MoJH2rB4PKRsJRHZv7yiFZn8LrnXuzvmZoD3fh1aL6aM6s0BBcnCvBe6XSD' crossorigin='anonymous'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 		out.print("<body>");
 		out.print("<form action='ccaactivities' target='_self'>");
 		
@@ -79,9 +79,9 @@ public class cca_activities extends HttpServlet
 			{	
 				row_id.next();
 				if(Integer.parseInt(req.getParameter("edit"))==row_id.getInt(1))
-					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td><input type=text name='cca1' value='"+rs.getString(1)+"'></td></div><div class='col-sm-7'><td><textarea rows='4' cols='100' name='interests1'>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='update' value="+row_id.getInt(1)+">Update</button></td></div></tr>");
+					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td><input type=text name='cca1' value='"+rs.getString(1)+"'></td></div><div class='col-sm-7'><td><textarea rows='4' cols='100' name='interests1'>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-success' name='update' value="+row_id.getInt(1)+"><i class='far fa-check-circle' style='font-size:25px;'></i></button></td></div></tr>");
 				else		
-					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><form><textarea rows='4' cols='100' disabled>"+rs.getString(2)+"</textarea></form></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='edit' disabled>Edit</button></td></div></tr>");
+					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><form><textarea rows='4' cols='100' disabled>"+rs.getString(2)+"</textarea></form></td></div><div class='col-sm-1'><td><button disabled type='submit' class='btn btn-primary btn-sm' name='edit'><span class='glyphicon glyphicon-pencil' style='font-size:25px;'></span></button></td></div></tr>");
 				
 			}
 			
@@ -110,7 +110,7 @@ public class cca_activities extends HttpServlet
 				while(rs.next())
 				{	
 					row_id.next();
-					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td><p>"+rs.getString(1)+"</p></td></div><div class='col-sm-7'><td><form><textarea rows='4' cols='100' style='background-color:white' disabled>"+rs.getString(2)+"</textarea></form></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='edit' value="+row_id.getInt(1)+">Edit</button></td></div></tr>");
+					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td><p>"+rs.getString(1)+"</p></td></div><div class='col-sm-7'><td><form><textarea rows='4' cols='100' style='background-color:white' disabled>"+rs.getString(2)+"</textarea></form></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary btn-sm' name='edit' value="+row_id.getInt(1)+"><span class='glyphicon glyphicon-pencil' style='font-size:25px;'></span></button></td></div></tr>");
 							
 				}
 				out.print("</div></tbody></table>");

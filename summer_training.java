@@ -121,7 +121,7 @@ public class summer_training extends HttpServlet
 				out.print("</tr></div></thead><tbody><div class='row'>");	
 				while(rs.next())
 				{	
-					out.print("<tr class='tbodyrow'><div class='col-sm-3'><td><textarea class='form-group ' row='3' cols='25' disabled>"+rs.getString(1)+"</textarea></td><div class='col-sm-3'><td><p>"+rs.getString(2)+"</p></td></div><div class='col-sm-3'><td><textarea class='form-group ' row='3' cols='35' disabled>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-3'><td><textarea class='form-group ' row='3' cols='35' disabled>"+rs.getString(4)+"</textarea></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='"+rs.getInt(5)+"'>Edit</button></td></div></tr>");			
+					out.print("<tr class='tbodyrow'><div class='col-sm-3'><td><textarea class='form-control ' row='3' cols='25' disabled>"+rs.getString(1)+"</textarea></td><div class='col-sm-3'><td><p>"+rs.getString(2)+"</p></td></div><div class='col-sm-3'><td><textarea class='form-control ' row='3' cols='35' disabled>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-3'><td><textarea class='form-control ' row='3' cols='35' disabled>"+rs.getString(4)+"</textarea></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='"+rs.getInt(5)+"'>Edit</button></td></div></tr>");			
 			
 				}
 				out.print("</div></tbody></table><input type=hidden name='year' value='"+year+"'/><input type=hidden name='rollno' value='"+roll_no+"'/></form></body></html>");

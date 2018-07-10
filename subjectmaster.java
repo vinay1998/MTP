@@ -60,7 +60,7 @@ public class subjectmaster extends HttpServlet
 
 			out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 
-			out.print("<body><form action='subjectupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
+			out.print("<body class='sfbg'><form action='subjectupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
 					
 			out.print("<div class='col-sm-10'><th><center>Subject Details</center></th></div><div class='col-sm-2'><th></th></div>");	
 						
@@ -72,7 +72,7 @@ public class subjectmaster extends HttpServlet
 				out.print("<div class='row'><div class='col-sm-2'><label for='sc'><b>Subject Credits:</b></label></div><div class='col-sm-2'><input class='form-control' id='subjectcredits' name='subjectcredits' disabled value='"+rs.getString(6)+"' type='text'></div></div></td><div class='col-sm-2'><td><button type='submit' class='btn btn-primary' name='"+rs.getInt(7)+"'>Edit</button></td></div></tr>");			
 			
 			}
-			out.print("</div></tbody></table><input type=hidden name='regulation' value='"+regulation+"'/><input type=hidden name='dept' value='"+dept+"'/><input type=hidden name='year' value='"+year+"'/><input type=hidden name='semester' value='"+semester+"'/></form></body></html>");
+			out.print("</div></tbody></table><input type=hidden name='regulation' value='"+regulation+"'/><input type=hidden name='dept' value='"+dept+"'/><input type=hidden name='year' value='"+year+"'/><input type=hidden name='semester' value='"+semester+"'/></form></body class='sfbg'></html>");
 
 			
 
@@ -105,7 +105,7 @@ public class subjectmaster extends HttpServlet
 
 			out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 
-			out.print("<body><form action='subjectupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
+			out.print("<body class='sfbg'><form action='subjectupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
 					
 			out.print("<div class='col-sm-10'><th><center>Subject Details</center></th></div><div class='col-sm-2'><th></th></div>");	
 						
@@ -117,7 +117,7 @@ public class subjectmaster extends HttpServlet
 				out.print("<div class='row'><div class='col-sm-2'><label for='sc'><b>Subject Credits:</b></label></div><div class='col-sm-2'><input class='form-control' id='subjectcredits' name='subjectcredits' disabled value='"+rs.getString(6)+"' type='text'></div></div></td><div class='col-sm-2'><td><button type='submit' class='btn btn-primary' name='"+rs.getInt(7)+"'>Edit</button></td></div></tr>");			
 					
 			}
-			out.print("</div></tbody></table><input type=hidden name='regulation' value='"+regulation+"'/><input type=hidden name='dept' value='"+dept+"'/><input type=hidden name='year' value='"+year+"'/><input type=hidden name='semester' value='"+semester+"'/></form></body></html>");
+			out.print("</div></tbody></table><input type=hidden name='regulation' value='"+regulation+"'/><input type=hidden name='dept' value='"+dept+"'/><input type=hidden name='year' value='"+year+"'/><input type=hidden name='semester' value='"+semester+"'/></form></body class='sfbg'></html>");
 
 			
 		}
@@ -145,7 +145,7 @@ public class subjectmaster extends HttpServlet
 
 				out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 
-				out.print("<body><form action='subjectupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
+				out.print("<body class='sfbg'><form action='subjectupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
 				
 				out.print("<div class='col-sm-10'><th><center>Subject Details</center></th></div><div class='col-sm-2'><th></th></div>");	
 						
@@ -156,7 +156,7 @@ public class subjectmaster extends HttpServlet
 							
 				}
 				
-				out.print("</div></tbody></table><input type=hidden name='regulation' value='"+regulation+"'/><input type=hidden name='dept' value='"+dept+"'/><input type=hidden name='year' value='"+year+"'/><input type=hidden name='semester' value='"+semester+"'/></form></body></html>");
+				out.print("</div></tbody></table><input type=hidden name='regulation' value='"+regulation+"'/><input type=hidden name='dept' value='"+dept+"'/><input type=hidden name='year' value='"+year+"'/><input type=hidden name='semester' value='"+semester+"'/></form></body class='sfbg'></html>");
 			}
 			else
 			{

@@ -63,14 +63,14 @@ public class summer_update extends HttpServlet
 
 			if(req.getParameter(String.valueOf(rs.getInt(5)))!=null)
 			{
-				out.print("<tr class='tbodyrow'><div class='col-sm-2'><td><textarea class='form-group ' row='3' cols='25' name='nameoftheindustryvisited1'>"+rs.getString(1)+"</textarea></td></div><div class='col-sm-3'><td><div class='controls input-append date form_date' data-date='' data-date-format='dd-mm-yyyy' data-link-field='id_date' data-link-format='yyyy-mm-dd'><p><input class=' form-control' type='text' value='"+rs.getString(2)+"' Style='background-color: white;' placeholder='dd-mm-yyyy' id='id_dateofvisit'readonly><span class='add-on'><i class='fa fa-calendar'></i></span></p></div><input type='hidden' value='"+rs_date.getString(1)+"' name='dateofvisit' id='id_date' value=''/></td></div>");
-				out.print("<div class='col-sm-3'><td><textarea class='form-group ' row='3' cols='35' name='learningpoints1'>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-3'><td><textarea class='form-group ' row='3' cols='35' name='actionplan1'>"+rs.getString(4)+"</textarea></td></div></tr>");			
+				out.print("<tr class='tbodyrow'><div class='col-sm-2'><td><textarea class='form-control ' row='3' cols='25' name='nameoftheindustryvisited1'>"+rs.getString(1)+"</textarea></td></div><div class='col-sm-3'><td><div class='controls input-append date form_date' data-date='' data-date-format='dd-mm-yyyy' data-link-field='id_date' data-link-format='yyyy-mm-dd'><p><input class=' form-control' type='text' value='"+rs.getString(2)+"' Style='background-color: white;' placeholder='dd-mm-yyyy' id='id_dateofvisit'readonly><span class='add-on'><i class='fa fa-calendar'></i></span></p></div><input type='hidden' value='"+rs_date.getString(1)+"' name='dateofvisit' id='id_date' value=''/></td></div>");
+				out.print("<div class='col-sm-3'><td><textarea class='form-control ' row='3' cols='35' name='learningpoints1'>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-3'><td><textarea class='form-control ' row='3' cols='35' name='actionplan1'>"+rs.getString(4)+"</textarea></td></div></tr>");			
 				out.print("<tr class='tbodyrow'><div class='col-sm-12'><td><center><button type='submit' class='btn btn-primary' name='update' value='"+rs.getString(5)+"'>Update</button></center></td></div></tr>");			
 
 			}
 			else
 			{
-				out.print("<tr class='tbodyrow'><div class='col-sm-2'><td><textarea class='form-group ' row='3' cols='25'  disabled>"+rs.getString(1)+"</textarea></td></div><div class='col-sm-3'><td><p>"+rs.getString(2)+"</p></td></div><div class='col-sm-3'><td><textarea class='form-group ' row='3' cols='35'  disabled>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-3'><td><textarea class='form-group ' row='3' cols='35' disabled>"+rs.getString(4)+"</textarea></td></div><div class='col-sm-1'><td><button disabled type='submit' class='btn btn-primary' name='"+rs.getInt(5)+"'>Edit</button></td></div></tr>");			
+				out.print("<tr class='tbodyrow'><div class='col-sm-2'><td><textarea class='form-control ' row='3' cols='25'  disabled>"+rs.getString(1)+"</textarea></td></div><div class='col-sm-3'><td><p>"+rs.getString(2)+"</p></td></div><div class='col-sm-3'><td><textarea class='form-control ' row='3' cols='35'  disabled>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-3'><td><textarea class='form-control ' row='3' cols='35' disabled>"+rs.getString(4)+"</textarea></td></div><div class='col-sm-1'><td><button disabled type='submit' class='btn btn-primary' name='"+rs.getInt(5)+"'>Edit</button></td></div></tr>");			
 			
 			}
 			
@@ -78,7 +78,7 @@ public class summer_update extends HttpServlet
 		}
 			out.print("</div></tbody></table><input type=hidden name='year' value='"+year+"'/><input type=hidden name='rollno' value='"+roll_no+"'/></form>");
 			out.print("<script type='text/javascript' src='js/jquery-1.8.3.min.js' charset='UTF-8'></script><script type='text/javascript' src='js/bootstrap-datetimepicker.js' charset='UTF-8'></script>");//date picker script links
-			out.print("<script>$('.form_date').datetimepicker({weekStart: 1,todayBtn:  1,autoclose: 1,todayHighlight: 1,startView: 2,minView: 2,forceParse: 0});</script></body></html>");//date pcker js
+			out.print("<script>$('.form_date').datetimepicker({weekStart: 1,todayBtn:  1,autoclose: 1,todayHighlight: 1,startView: 2,minView: 2,forceParse: 0,endDate:'+0d'});</script></body></html>");//date pcker js
 
 		stmt_date.close();
 		stmt.close();

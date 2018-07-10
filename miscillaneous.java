@@ -51,7 +51,7 @@ public class miscillaneous extends HttpServlet
 
 			out.print("<html><head><link rel='stylesheet' href='css\bootstrap.css'><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 
-			out.print("<body><form action='misupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
+			out.print("<body class='sfbg'><form action='misupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
 					
 			out.print("<div class='col-sm-3'><th><center>College Code</center></th></div><div class='col-sm-3'><th><center>Course Code</center></th></div><div class='col-sm-3'><th><center>Staff Code</center></th></div><div class='col-sm-3'><th></th></div>");	
 						
@@ -63,7 +63,7 @@ public class miscillaneous extends HttpServlet
 				else
 					out.print("<tr class='tbodyrow'><div class='col-sm-3'><td><center><input  class='form-control' type='text' disabled value='"+rs.getString(1)+"' /></center></td></div><div class='col-sm-3'><td><center><input  class='form-control' type='text' disabled value='"+rs.getString(2)+"' /></center></td></div><div class='col-sm-3'><td><center><input  class='form-control' type='text' disabled value='"+rs.getString(3)+"' /></center></td></div><div class='col-sm-3'><td><button type='submit' class='btn btn-primary' name='"+rs.getInt(4)+"'>Edit</button></td></div></tr>");			
 			}
-			out.print("</div></tbody></table></form></body></html>");
+			out.print("</div></tbody></table></form></body class='sfbg'></html>");
 			
 			
 			}
@@ -85,7 +85,7 @@ public class miscillaneous extends HttpServlet
 
 			out.print("<html><head><link rel='stylesheet' href='css\bootstrap.css'><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 
-			out.print("<body><form action='misupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
+			out.print("<body class='sfbg'><form action='misupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
 					
 			out.print("<div class='col-sm-3'><th><center>College Code</center></th></div><div class='col-sm-3'><th><center>Course Code</center></th></div><div class='col-sm-3'><th><center>Staff Code</center></th></div><div class='col-sm-3'><th></th></div>");	
 						
@@ -98,7 +98,7 @@ public class miscillaneous extends HttpServlet
 					out.print("<tr class='tbodyrow'><div class='col-sm-3'><td><center><input  class='form-control' type='text' disabled value='"+rs.getString(1)+"' /></center></td></div><div class='col-sm-3'><td><center><input  class='form-control' type='text' disabled value='"+rs.getString(2)+"' /></center></td></div><div class='col-sm-3'><td><center><input  class='form-control' type='text' disabled value='"+rs.getString(3)+"' /></center></td></div><div class='col-sm-3'><td><button type='submit' class='btn btn-primary' name='"+rs.getInt(4)+"'>Edit</button></td></div></tr>");			
 
 			}
-			out.print("</div></tbody></table></form></body></html>");
+			out.print("</div></tbody></table></form></body class='sfbg'></html>");
 
 			
 		}
@@ -115,7 +115,7 @@ public class miscillaneous extends HttpServlet
 
 			out.print("<html><head><link rel='stylesheet' href='css\bootstrap.css'><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 
-			out.print("<body><form action='misupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
+			out.print("<body class='sfbg'><form action='misupdate' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
 					
 			out.print("<div class='col-sm-3'><th><center>College Code</center></th></div><div class='col-sm-3'><th><center>Course Code</center></th></div><div class='col-sm-3'><th><center>Staff Code</center></th></div><div class='col-sm-3'><th></th></div>");	
 						
@@ -128,7 +128,7 @@ public class miscillaneous extends HttpServlet
 					out.print("<tr class='tbodyrow'><div class='col-sm-3'><td><center><input  class='form-control' type='text' disabled value='"+rs.getString(1)+"' /></center></td></div><div class='col-sm-3'><td><center><input  class='form-control' type='text' disabled value='"+rs.getString(2)+"' /></center></td></div><div class='col-sm-3'><td><center><input  class='form-control' type='text' disabled value='"+rs.getString(3)+"' /></center></td></div><div class='col-sm-3'><td><button type='submit' class='btn btn-primary' name='"+rs.getInt(4)+"'>Edit</button></td></div></tr>");			
 
 			}
-			out.print("</div></tbody></table></form></body></html>");
+			out.print("</div></tbody></table></form></body class='sfbg'></html>");
 			}
 			else
 			{

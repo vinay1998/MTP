@@ -51,7 +51,7 @@ public class login extends HttpServlet
 				{
 					req.getSession().setAttribute("user_id",user_id);
 					if(user_type.equals("Mentee"))
-						res.sendRedirect("index.html");
+						res.sendRedirect("index.jsp");
 					else if(user_type.equals("Mentor"))
 						out.print("mentor");
 					else if(user_type.equals("Admin"))

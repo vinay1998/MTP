@@ -45,12 +45,12 @@ public class miscillaneous_update extends HttpServlet
 		//table head code
 			out.print("<html><head><link rel='stylesheet' href='css\bootstrap.css'><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 
-			out.print("<body><form action='misupdate1' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
+			out.print("<body class='sfbg'><form action='misupdate1' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
 					
 			out.print("<div class='col-sm-3'><th><center>College Code</center></th></div><div class='col-sm-3'><th><center>Course Code</center></th></div><div class='col-sm-3'><th><center>Staff Code</center></th></div><div class='col-sm-3'><th></th></div>");	
 						
 			out.print("</tr></div></thead><tbody><div class='row'>");	
-		//table body code
+		//table body class='sfbg' code
 
 		while(rs.next())
 		{
@@ -74,7 +74,7 @@ public class miscillaneous_update extends HttpServlet
 			
        
 		}
-		out.print("</div></tbody></table></form></body></html>");
+		out.print("</div></tbody></table></form></body class='sfbg'></html>");
 		stmt.close();
 		conn.close();
 	}

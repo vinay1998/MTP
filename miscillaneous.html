@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>VNR VJIET-MTP</title>
- <!--=====================================CSS links===============================================-->
+  <title>VNR VJIET-MTP </title>
+ 
+<!--=====================================CSS links===============================================-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css"  type="text/css">
   <link rel="stylesheet" href="vendor/datatables/dataTables.bootstrap4.css" >
@@ -37,18 +38,20 @@
 </head>
 
 <body>
-        <!-- Breadcrumbs-->
-      <ol class="breadcrumb"  style="background-color:transparent;">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb" style="background-color:transparent;">
         <li class="breadcrumb-item">
           <a href="adminlogin.html" target="_top">Home</a>
         </li>
-        <li class="breadcrumb-item active">Regulation Master</li>
+        <li class="breadcrumb-item active">Miscillaneous</li>
       </ol>
-	  
-      
-     <!--<br><h1><font color="dodgerblue"><center>Regulation Master</center></font></h1><br>-->
+    
+	
+		  
+      <!-- main content-->
 	<div class="container">
-	  <form method="post" action="regulationmaster" name="form1" target="display_frame">
+      <!--<br><h1><font color="dodgerblue"><center>Regulation Master</center></font></h1><br>--><br>
+	  <form mathod="post" action="miscillaneous" name="form1" target="display_frame">
 		<div class="form-group">
 			<div class="row">
 			<div class="col-sm-4">
@@ -57,22 +60,35 @@
 			</div><br>
 			<!--<input type="text" id="regulationcode1" name="regulationcode1" />-->
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-sm-2">
 					<h3>Add Record</h3>
 				</div></div><br>
 			<div class="row">
-				<div class="col-sm-3">
-					<label for="semester"><b>Regulation Code:</b></label>
+				<div class="col-sm-1">
+					
+				</div>
+				<div class="col-sm-2">
+					<label for="cc"><b>College Code :</b></label>
+					<input class="form-control" id="clgcode" name="clgcode" type="text">
+				</div>
+				<div class="col-sm-1">
+					
+				</div>
+				<div class="col-sm-2">
+					<label for="cc"><b>Course Code :</b></label>
+					<input class="form-control" id="coursecode" name="coursecode" type="text">
+				</div>
+				<div class="col-sm-1">
+					
+				</div>
+				<div class="col-sm-2">
+					<label for="cc"><b>Staff Dept. ID Code :</b></label>
+					<input class="form-control" id="deptcode" name="deptcode" type="text">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-2">
-					<input class="form-control" id="regulationcode" name="regulationcode" type="text">
-				</div>
-				<div class="col-sm-2">
-					<button type="submit" class="btn btn-primary" name="save" id="save">Save</button>
-				</div>
-			</div><br>
+				<br>
+					<center><button type="submit" class="btn btn-primary" name="save" id="save">Save</button></center>
+				
 		
 		<h3>View Records</h3>
 			<div class="embed-responsive embed-responsive-16by9">
@@ -81,15 +97,13 @@
 		</div>
 	</form>
 	</div>
-	
-   
+    <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-   
 	
-    <!--=====================================Script links==============================================-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	   <!--=====================================Script links==============================================-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
     <script src="js\bootstrap.bundle.js"></script>
     <script src="js\bootstrap.bundle.min.js"></script>
     <script src="js\bootstrap.js"></script>
@@ -105,19 +119,16 @@
 	<script src="js/main.js"></script>
 	<!--date scripts links-->
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js" charset="UTF-8"></script>
-	<script type="text/javascript" src="js/bootstrap-date.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
 	<!--new links-->
+	<!--auto textarea size-->
+	<script src='js/jquery.autosize.js' charset="UTF-8"></script>
+	<!--modal-->
+	<script src='js/jquery.modal.js' charset="UTF-8"></script>
+	<!---->
+	<script src="js/main.js"></script> 
 <!--===============================================================================================-->
-	
-	<script type="text/javascript">
-		$(document).ready(function(){ 
-			$('#regulationcode').on("keyup focus keydown mouseup mousedown",function(){
-				$('#regulationcode1').text($('#regulationcode').val());
-			});
-		});
-	</script>
-  
 </body>
 
 </html>

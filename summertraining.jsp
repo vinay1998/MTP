@@ -35,7 +35,7 @@
 
 </head>
 
-<body style="background-color:transparent;">
+<body class="mfbg">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb" style="background-color:transparent;">
         <li class="breadcrumb-item">
@@ -85,10 +85,10 @@
 				<thead>
 					<div class="row">	
 						<tr class="table100-head theadrow">
-							<div class="col-sm-3"><th ><center>Name of the Industry visited</center></th></div>
-							<div class="col-sm-2"><th ><center>Date of visit</center></th></div>
-							<div class="col-sm-4"><th ><center>Learning points</center></th></div>
-							<div class="col-sm-3"><th ><center>Action plan</center></th></div>
+							<div class="col-sm-3"><th ><center>Name of the Industry Visited</center></th></div>
+							<div class="col-sm-2"><th ><center>Date of Visit</center></th></div>
+							<div class="col-sm-4"><th ><center>Learning Points</center></th></div>
+							<div class="col-sm-3"><th ><center>Action Plan</center></th></div>
 						</tr>
 					</div>
 				</thead>
@@ -120,8 +120,8 @@
 				<button type="button" class="btn btn-info" onclick="document.getElementById('id_nameoftheindustryvisited').value = '';document.getElementById('id_dateofinteraction').value= '';document.getElementById('id_learningpoints').value = '';document.getElementById('id_actionplan').value = '';document.getElementById('max-name').innerHTML = '0/100';document.getElementById('max-learning').innerHTML = '0/100';document.getElementById('max-action').innerHTML = '0/100';">Reset</button>
 			</center><br/>
 			<h3>View Records</h3>
-			<div class="embed-responsive embed-responsive-16by9" style="background-color:transparent;">
-				<iframe class="embed-responsive-item" src="empty.html" name="display_frame" style="background-color:transparent;"></iframe>
+			<div class="embed-responsive embed-responsive-16by9" >
+				<iframe class="embed-responsive-item" src="empty.html" name="display_frame"></iframe>
 			</div>
 			</div>
 			</div>

@@ -46,12 +46,13 @@
 		}
 		mentor_stmt = conn.createStatement();
 		
+		out.print(mentor_id + from_date);
 		if(mentor_id==null)
 		{
 			response.sendRedirect("no_mentor.jsp");
 		}
 		
-		ResultSet mentor_rs=mentor_stmt.executeQuery("select Staff_Name,Date_Of_Birth,Designation,Academic_Qualification,Papers_National,Papers_International,Conferences_National,Conferences_International,Memberships_Of_Prof_Bodies,Consultations,Research_Interests,Other_Interests from Staff_Master where Staff_Code='"+mentor_id+"'");
+		ResultSet mentor_rs=mentor_stmt.executeQuery("select Staff_Name,Date_Of_Birth,Designation,Academic_Qualification,Papers_National,Papers_International,Conferences_National,Conferences_International,Memberships_Of_Prof_Bodies,Consultations,Research_Interests,Other_Interests from Staff_Master where Staff_Code='"+12345+"'");
 		mentor_rs.next();
 		
 		

@@ -402,4 +402,21 @@
 <url-pattern>/department_update</url-pattern>
 </servlet-mapping>
 
+<servlet>
+<servlet-name>mr</servlet-name>
+<servlet-class>mentor_reviews</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>mr</servlet-name>
+<url-pattern>/mentor_reviews</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>mru</servlet-name>
+<servlet-class>mentor_reviews_update</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>mru</servlet-name>
+<url-pattern>/mentor_reviews_update</url-pattern>
+</servlet-mapping>
 </web-app>

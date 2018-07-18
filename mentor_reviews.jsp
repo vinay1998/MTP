@@ -1,3 +1,4 @@
+<%@ page import="java.io.*,java.util.Date,java.text.SimpleDateFormat,java.sql.*,javax.servlet.*,javax.servlet.http.*" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,18 +48,18 @@
       </ol>	
 	
 <div class="container">
-	<form name="form1" onsubmit="document.form1.target='display_frame';return true;" method='post' action="mentor_reviews">
+	<form name="form1" target='display_frame' method='post' action="mentor_reviews">
 		<div class="container-table100">
 		<div class="container">
 		<div class="form-group">
 			<div class="row">
 				<div class="col-sm-2">
 					<label for="rollno"><b>Roll No.:</b></label>
-					<input class="form-control" id="rollno" type="text">
+					<input class="form-control" id="rollno" name="rollno" type="text"  value="<%=(String)request.getSession().getAttribute("user_id")%>" style="background-color:white;"  readonly>
 				</div>
 				<div class="col-sm-4">
 					<label for="studentname"><b>Student Name:</b></label>
-					<input class="form-control" id="studentname" type="text">
+					<input class="form-control" id="studentname" type="text" value="<%=(String)request.getSession().getAttribute("user_name")%>"  style="background-color:white;"  readonly>
 				</div>
 				 <div class="col-sm-2">
 					<label for="year"><b>Year:</b></label>
@@ -74,8 +75,8 @@
 					<label for="semester"><b>Semester:</b></label>
 					<select class="form-control subsearch" id="semester" name="semester">
 						<option hidden>select</option>
-						<option value='-1'>I</option>
-						<option value='-2'>II</option>
+						<option value='1'>I</option>
+						<option value='2'>II</option>
 					</select>
 				</div>
 				<div class="col-sm-2">
@@ -132,7 +133,7 @@
 
 			</table>
 			<center>
-				<button type="submit" class="btn btn-primary" disabled id='save' title="fill above fields to enable">Save</button>
+				<button type="submit" class="btn btn-primary" id='save' name='save'disabled title="fill above fields to enable">Save</button>
 				<button type="button" onclick="document.getElementById('id_dateofvisit').value = '';document.getElementById('subjectdiscussed').value = '';document.getElementById('remarks').value= '';document.getElementById('suggestion_conclusion').value= '';document.getElementById('max_remarks').innerHTML = '0/100';document.getElementById('max_sugg').innerHTML = '0/100';document.getElementById('max_sub_diss').innerHTML = '0/100';" class="btn btn-info">Reset</button>
 			</center>
 			<h3>View Records</h3>

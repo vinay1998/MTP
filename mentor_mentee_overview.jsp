@@ -29,33 +29,35 @@
   <link rel="stylesheet" type="text/css" href="css/util.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="icon" href="images/icons/favicon.ico" type="image/png" />
-  
   <!--date css links-->
   <link href="css/bootstrap-date-edit.css" rel="stylesheet">
   <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 <!--===============================================================================================-->  
   
-<style>
 
-</style>
 
 </head>
 
 <body class="mfbg" id="page-top">
+ 
   
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb" style="background-color:transparent;">
+  
+   
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb" style="background-color:transparent;">
         <li class="breadcrumb-item">
           <a href="index.html" target="_top">Home</a>
         </li>
-        <li class="breadcrumb-item active" >Mentoring&nbsp; / &nbsp;Mentor - Mentee Meetings</li>
-      </ol>
-<div class="container"  >	
-		<form action="mentor_mentee_meetings"  method="post" name="form1" target="display_frame">	
+        <li class="breadcrumb-item active">Mentoring&nbsp; / &nbsp;Mentor - Mentee Overview</li>
+    </ol>
+	  
+    <!-- main content-->	
+	<div class="container">	
+	<form action="mentor_mentee_overview"  method="post" name="form1" target="display_frame">	
 		<div class="form-group">
-			<div class="row">
-				
-		
+			<div class="row">				
+				<div class="col-sm-2">
+				</div>
 				<div class="col-sm-2">
 					<label for="rollno"><b>Roll No.:</b></label>
 					<input class="form-control" name="rollno"  id="rollno" type="text" value="<%=(String)request.getSession().getAttribute("user_id")%>"  style="background-color:white;"  readonly>
@@ -65,75 +67,79 @@
 					<input class="form-control" id="id_studentname" type="text" value="<%=(String)request.getSession().getAttribute("user_name")%>" style="background-color:white;"  readonly >
 				</div>
 				<div class="col-sm-2">
-					<label for="year"><b>Year:</b></label>
-					<select class="form-control subsearch" name="year" id="year">
-						<option hidden>Select</option>
-						<option value="1">I</option>
-						<option value="2">II</option>
-						<option value="3">III</option>
-						<option value="4">IV</option>
-					</select>
-				</div>
-				<div class="col-sm-2">
-					<label for="semester"><b>Semester:</b></label>
-					<select class="form-control subsearch" name="semester" id="semester">
-						<option hidden>Select</option>
-						<option value="1">I</option>
-						<option value="2">II</option>
-					</select>
-				</div>
-				<div class="col-sm-2">
 					<br/>
-					<button type="submit" class="btn btn-primary" name="search" id="search" disabled>Search</button>
+					<button type="submit" class="btn btn-primary" name="search" id="search" title="Choose Year and Semester to enable">Search</button>
+				</div>
+				<div class="col-sm-2">
 				</div>
 				<br/><br/>
-				
-			</div></div><br/>
-			<h3>Add Record</h3>
-			<table class="table " id='data' >
-				<thead>
-					<div class="row">	
-						<tr class="table100-head theadrow">
-							<div class="col-sm-2"><th><center>Date of Interaction</center></th></div>
-							<div class="col-sm-9"><th><center>Remarks / Advice / Guidance</center></th></div>
-						</tr>
-					</div>						
-				</thead>
-				<tbody>
-					<div class="row">
-						<tr class="tbodyrow">
-							<div class='col-sm-2'>
-								<td>
-									<div class="controls input-append date form_date" data-date="" data-date-format="dd-mm-yyyy" data-link-field="id_date" data-link-format="yyyy-mm-dd">
-										<p><input class="form-control subsave-date" type="text" value="" Style="background-color: white;" placeholder="dd-mm-yyyy" id="id_dateofinteraction"readonly>
-										<span class="add-on"><i class="fa fa-calendar "></i></span></p>	
-									</div>
-									<input type="hidden" name="dateofinteraction" id="id_date" value="" />
-								</td>
-							</div>
-							<div class='col-sm-9'><td><textarea class="form-control normal subsave-area" rows='2' cols='70' name='remarks' id="id_remarks" maxlength="1000"></textarea><p id="max_remarks">0/1000</p></td></div>
-						</tr>
-					</div>
-				</tbody>
-			</table>
-			<br/>
-			<center>
-			<button type="submit" class="btn btn-primary" name="save" id="save" disabled>Save</button> 
-			<button type="button" onclick="document.getElementById('id_dateofinteraction').value = '';document.getElementById('id_remarks').value= '';document.getElementById('max_remarks').innerHTML = '0/1000'" class="btn btn-info ">Reset</button>
-			</center>
-			
-			<h3>View Records</h3>
-			<div class="embed-responsive embed-responsive-1by1" >
-				<iframe class="embed-responsive-item"  src="empty.html" name="display_frame"></iframe>
 			</div>
-		</form>
 		</div>
-		
+		<br/>
+		<h3>Add Record</h3>
+		<table class="table table-hover" id='data'>
+			<thead>
+				<div class="row">	
+					<tr class="table100-head theadrow">
+						<div class="col-sm-2">
+							<th ><center>Date</center></th>
+						</div>
+						<div class="col-sm-5">
+							<th><center>Topics Discussed</center></th>
+						</div>
+						<div class="col-sm-5">
+							<th><center>Remarks</center></th>
+						</div>
+						
+					</tr>
+				</div>				
+			</thead>
+			<tbody >
+				<tr class="tbodyrow">
+					<div class="row">
+						<div class='col-sm-2'>
+							<td>
+								<div class="controls input-append date form_date" data-date="" data-date-format="dd-mm-yyyy" data-link-field="id_date" data-link-format="yyyy-mm-dd">
+									<p><input class="form-control subsave-date" type="text" value="" Style="background-color: white;" placeholder="dd-mm-yyyy" id="id_dateofinteraction"readonly>
+									<span class="add-on"><i class="fa fa-calendar "></i></span></p>	
+								</div>
+								<input type="hidden" name="dateofinteraction" id="id_date" value="" />
+							</td>
+						</div>
+						<div class="col-sm-5"><td name='topics_discussed'><textarea class="form-control normal subsave-area" rows="2" id="topics_discussed"></textarea><p id="max_topics">0/1000</p></td>
+						</div>
+						<div class="col-sm-5"><td name='remarks'><textarea class="form-control normal subsave-area" rows="2" id="remarks"></textarea><p id="max_remarks">0/1000</p></td>
+						</div>
+
+					</div>
+					<textarea id="topicsdiscussed1" name="topics1" style='display:none'></textarea>
+					<textarea id="remarks1" name="remarks1" style='display:none'></textarea>
+				</tr>
+			</tbody>
+		</table>
+		<center>
+			<button type="submit" class="btn btn-primary" name="save" id="save" disabled title="fill above fields to enable" onclick="document.getElementById('id_date1').value = '';document.getElementById('topics_discussed').value= '';document.getElementById('remarks').value= '';document.getElementById('max_topics').innerHTML = '0/1000';document.getElementById('max_remarks').innerHTML = '0/1000';">
+				Save
+			</button> 
+			<button type="button" onclick="document.getElementById('id_date1').value = '';document.getElementById('topics_discussed').value= '';document.getElementById('remarks').value= '';document.getElementById('max_topics').innerHTML = '0/1000';document.getElementById('max_remarks').innerHTML = '0/1000';" class="btn btn-info">
+				Reset
+			</button>
+				
+		</center>
+		<br/>
+		<h3>View Records</h3>
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe class="embed-responsive-item" src="empty.html" name="display_frame"></iframe>
+		</div>
+	</form>
+	</div>
+	
 	<!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-<!--=====================================Script links==============================================-->
+	
+   <!--=====================================Script links==============================================-->
 	
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 	
@@ -168,21 +174,20 @@
 	<!--modal-->
 	<script src='js/jquery.modal.js' charset="UTF-8"></script>
 <!--===============================================================================================-->
-  	
-<!--========================================Scripts================================================-->
-	<script type="text/javascript">
+ <script type="text/javascript">
+    $(document).ready(function(){
 	
-  //   $(document).ready(function(){  
-	   $('#id_remarks').on("input",function(){
-		   $('#max_remarks').text('/1000');
-		   if($('#id_remarks').val().length <= 1000)
-		  {
-		     $('#max_remarks').text($('#id_remarks').val().length+'/1000');
-		  }
-       });
-
-
-	  var rollno= $("#rollno").val();//$("#rollno").val();
+			//$('#search').prop('style','cursor:not-allowed;');
+			$('#save').prop('style','cursor:not-allowed;');
+			
+        $(".add").click(function(){
+			table=$('#data tr');
+			var count=(table.length/2)+1;
+            var markup = "<tr><div class='col-sm-4'><td name='s-no'><center>"+count+"</center></td></div><div class='col-sm-1'><td name='date'><center><input class='form-control' id='dateofvisit' type='date'></center></td></div><div class='col-sm-4'><td name='topics-discussed'><textarea class='form-control' rows='2' cols='70' id='Topics Discussed'></textarea></td></div><div class='col-sm-3'><td name='remarks'><textarea class='form-control' rows='2' cols='70' id='remarks'></textarea></td></div><tr>";
+            $(".table tbody").append(markup);
+        });
+     
+     var rollno= $("#rollno").val();//$("#rollno").val();
 	  var year=rollno.substr(0,2);<!-- string -->
 	  year=parseInt(year);
 	  
@@ -215,13 +220,41 @@
 		{
 		  $('#semester option').last().prop("disabled",false);
 		}
-	 });	
+	 });   	
 
-  </script>
-<!--===============================================================================================-->
- 
-  
+		
 	
-</body>
+	$('#topics_discussed').on("input",function(){
+			$('#max_topics').text('/1000');
+				if($('#topics_discussed').val().length <= 1000)
+				{
+					$('#max_topics').text($('#topics_discussed').val().length+'/1000');
+				}
+		});
+		
+		$('#remarks').on("input",function(){
+			$('#max_remarks').text('/1000');
+				if($('#remarks').val().length <= 1000)
+				{
+					$('#max_remarks').text($('#remarks').val().length+'/1000');
+				}
+		});
+	
+	$('#topics_discussed').on("keyup keydown mouseup mousedown",function(){
+			$('#topicsdiscussed1').text($('#topics_discussed').val());
+		});
+		
+		$('#remarks').on("keyup keydown mouseup mousedown",function(){
+			$('#remarks1').text($('#remarks').val());
+		});
+		
+	
+        
+    });    
+</script>
 
+
+
+</body>
 </html>
+	

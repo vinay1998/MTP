@@ -44,7 +44,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb" style="background-color:transparent;">
         <li class="breadcrumb-item">
-          <a href="indexnew.html">Home</a>
+          <a href="index.jsp">Home</a>
         </li>
         <li class="breadcrumb-item active">Alumni Association Form</li>
       </ol>

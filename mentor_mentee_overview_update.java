@@ -1,0 +1,95 @@
+import java.io.*;
+import java.util.*;
+import java.sql.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class mentor_mentee_overview_update extends HttpServlet
+{
+  public void service(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
+  {
+
+	//global object declaration section
+    Connection conn = null;
+	Statement stmt = null;
+	Statement stmt_date = null;
+	ResultSet rs=null;
+	ResultSet rs_date=null;
+	PrintWriter out = res.getWriter();
+	res.setContentType("text/html");
+	
+	//html form values section
+	
+	String roll_no=req.getParameter("rollno1");
+	String dateofinteraction=req.getParameter("dateofinteraction");
+	String topics_discussed=req.getParameter("topics1");
+	String remarks=req.getParameter("remarks1");
+
+
+	//date calculation
+	java.util.Date date=new java.util.Date();
+	java.sql.Timestamp sqlTime=new java.sql.Timestamp(date.getTime());
+	
+
+	//jdbc logic section
+	try
+    {
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		String dbURL = "jdbc:sqlserver://10.45.29.254;DatabaseName=VNR_Students_Record";
+        String user = "sa";
+        String pass = "vnrvjiet1@3";
+        conn = DriverManager.getConnection(dbURL, user, pass);
+		stmt = conn.createStatement();
+		stmt_date = conn.createStatement();
+
+
+
+		rs = stmt.executeQuery("SELECT convert(varchar,Overview_Date,105),Topics_Discussed,Remarks,Student_Mentee_Overview_Events_ID FROM Student_Mentor_Mentee_Overview_Events where Student_Code='"+roll_no+"' order by Student_Mentee_Overview_Events_ID desc");
+		
+		//to get database date format
+		rs_date = stmt_date.executeQuery("SELECT Overview_Date FROM Student_Mentor_Mentee_Overview_Events order by Student_Mentee_Overview_Events_ID desc");
+
+	//table head code
+		out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'><link rel='stylesheet' type='text/css' href='fonts/font-awesome-4.7.0/css/font-awesome.min.css'><link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.1.0/css/regular.css' integrity='sha384-avJt9MoJH2rB4PKRsJRHZv7yiFZn8LrnXuzvmZoD3fh1aL6aM6s0BBcnCvBe6XSD' crossorigin='anonymous'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
+		out.print("<link href='css/bootstrap-date-edit.css' rel='stylesheet'><link href='css/bootstrap-datetimepicker.min.css' rel='stylesheet'></head>");//datepicker css links
+		out.print("<body class='sfbg'><form action='mmo_update1' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");		
+		out.print("<div class='col-sm-3'><th>Date</th></div><div class='col-sm-3'><th>Topics Discussed</th></div><div class='col-sm-4'><th>Remarks</th></div><div class='col-sm-2'><th></th></div>");	
+		out.print("</tr></div></thead><tbody><div class='row'>");
+	//table body code
+
+		while(rs.next())
+		{
+			
+			rs_date.next();
+
+			if(req.getParameter(String.valueOf(rs.getInt(4)))!=null)
+			{
+				out.print("<tr class='tbodyrow'> <div class='col-sm-3'><td><div class='controls input-append date form_date' data-date='' data-date-format='dd-mm-yyyy' data-link-field='id_date' data-link-format='yyyy-mm-dd'><p><input class=' form-control' type='text' value='"+rs.getString(1)+"' Style='background-color: white;' placeholder='dd-mm-yyyy' id='id_dateofinteraction' readonly><span class='add-on'><i class='fa fa-calendar'></i></span></p></div><input type='hidden' value='"+rs_date.getString(1)+"' name='dateofinteraction_1' id='id_date' value=''/></td></div>");
+				out.print("<div class='col-sm-3'><td><textarea class='form-control' rows='4' cols='50' name='topics_discussed_1'>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-4'><td><textarea class='form-control' rows='4' cols='50' name='remarks_1'>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-2'><td><button type='submit' class='btn btn-success' name='update' value='"+rs.getString(4)+"'><i class='far fa-check-circle' style='font-size:25px;'></i></button></td></div></tr>");			
+
+			}
+			else
+			{
+				out.print("<tr class='tbodyrow'><div class='col-sm-3'><td>"+rs.getString(1)+"</td></div><div class='col-sm-3'><td><textarea class='form-control' rows='4' cols='50' disabled>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-4'><td><textarea class='form-control' rows='4' cols='50' disabled>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-2'><td><button type='submit' class='btn btn-primary btn-sm' name='"+rs.getInt(4)+"'><span class='glyphicon glyphicon-pencil' style='font-size:25px;'></span></button></td></div></tr>");								
+			
+			}
+			
+       
+		}
+			out.print("</div></tbody></table><input type=hidden name='rollno' value='"+roll_no+"'/></form>");
+			out.print("<script type='text/javascript' src='js/jquery-1.8.3.min.js' charset='UTF-8'></script><script type='text/javascript' src='js/bootstrap-datetimepicker.js' charset='UTF-8'></script>");//date picker script links
+			out.print("<script>$('.form_date').datetimepicker({weekStart: 1,todayBtn:  1,autoclose: 1,todayHighlight: 1,startView: 2,minView: 2,forceParse: 0,endDate:'+0d'});</script></body></html>");//date pcker js
+
+		stmt_date.close();
+		stmt.close();
+		conn.close();
+    }
+    catch(Exception e)
+	  {
+		out.print(e);
+	
+	}
+	 
+  }
+ 
+}

@@ -21,7 +21,7 @@ var ta,dt,d;
 	   if(present_month >= 5)//enabling from june(5) month 
 	   {
 	     diff=diff+1;
-	     alert(diff);
+	     //alert(diff);
 	   }
 	 while(diff<=t)
 	 {

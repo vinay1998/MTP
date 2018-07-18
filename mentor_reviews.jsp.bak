@@ -36,7 +36,7 @@
 
   
 </head>
-<body style="background-color:transparent;">
+<body class="mfbg" id="page-top">
 
       <!-- Breadcrumbs-->
       <ol class="breadcrumb" style="background-color:transparent;">
@@ -54,11 +54,11 @@
 			<div class="row">
 				<div class="col-sm-2">
 					<label for="rollno"><b>Roll No.:</b></label>
-					<input class="form-control" id="rollno" type="text">
+					<input class="form-control" id="rollno" type="text" value="<%=request.getSession().getAttribute("user_id")%>" readonly style="background-color:'white';">
 				</div>
 				<div class="col-sm-4">
 					<label for="studentname"><b>Student Name:</b></label>
-					<input class="form-control" id="studentname" type="text">
+					<input class="form-control" id="studentname" type="text"  value="<%=(String)request.getSession().getAttribute("user_name")%>" readonly style="background-color:'white';" >
 				</div>
 				 <div class="col-sm-2">
 					<label for="year"><b>Year:</b></label>
@@ -74,8 +74,8 @@
 					<label for="semester"><b>Semester:</b></label>
 					<select class="form-control subsearch" id="semester" name="semester">
 						<option hidden>select</option>
-						<option value='-1'>I</option>
-						<option value='-2'>II</option>
+						<option value='1'>I</option>
+						<option value='2'>II</option>
 					</select>
 				</div>
 				<div class="col-sm-2">
@@ -132,7 +132,7 @@
 
 			</table>
 			<center>
-				<button type="submit" class="btn btn-primary" disabled id='save' title="fill above fields to enable">Save</button>
+				<button type="submit" class="btn btn-primary" disabled id='save' name='save' title="fill above fields to enable">Save</button>
 				<button type="button" onclick="document.getElementById('id_dateofvisit').value = '';document.getElementById('subjectdiscussed').value = '';document.getElementById('remarks').value= '';document.getElementById('suggestion_conclusion').value= '';document.getElementById('max_remarks').innerHTML = '0/100';document.getElementById('max_sugg').innerHTML = '0/100';document.getElementById('max_sub_diss').innerHTML = '0/100';" class="btn btn-info">Reset</button>
 			</center>
 			<h3>View Records</h3>
@@ -169,7 +169,10 @@
 	  </div>
    </div>
  </div>
- <!--modal ending-->      
+ <!--modal ending-->
+  <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
    
 	
 

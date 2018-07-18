@@ -51,7 +51,7 @@
 		String aadhar_card_number=request.getParameter("aadhar_card_number");
 			
 		stmt.executeUpdate("Update Login set Login_Password='"+new_password+"', Updated_On='"+sqlTime+"' where Login_Aadhar='"+aadhar_card_number+"'");
-		response.sendRedirect("login.html");
+		response.sendRedirect("login.jsp");
 	}
 		
 	stmt.close();

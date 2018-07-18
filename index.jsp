@@ -169,7 +169,7 @@
     <div class="collapse navbar-collapse " id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="overflow-y:auto;">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="student_dashboard.html" target="pages">
+          <a class="nav-link" href="construction_page.html" target="pages">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
@@ -466,7 +466,7 @@
 	</div>
 	<br/><br/><br/>
 	<div class="container-fluid contents" id="frame" style="position:relative;max-width:100%">
-      <iframe class="" src="student_dashboard.html" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" frameborder="0" name="pages" id="pages" ></iframe>
+      <iframe class="" src="construction_page.html" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" frameborder="0" name="pages" id="pages" ></iframe>
 	</div>
   </div>
     

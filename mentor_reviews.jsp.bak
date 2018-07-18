@@ -74,8 +74,8 @@
 					<label for="semester"><b>Semester:</b></label>
 					<select class="form-control subsearch" id="semester" name="semester">
 						<option hidden>select</option>
-						<option value='1'>I</option>
-						<option value='2'>II</option>
+						<option value='-1'>I</option>
+						<option value='-2'>II</option>
 					</select>
 				</div>
 				<div class="col-sm-2">

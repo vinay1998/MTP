@@ -1,0 +1,63 @@
+<%@ page import="java.io.*,java.util.Date,java.text.SimpleDateFormat,java.sql.*,javax.servlet.*,javax.servlet.http.*" %>
+
+<%
+//global object declaration section
+    Connection conn = null;
+	Statement mentor_stmt = null;
+	Statement mentee_stmt = null;
+	response.setContentType("text/html");
+	
+
+	//jdbc logic section
+
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		String dbURL = "jdbc:sqlserver://10.45.29.254;DatabaseName=VNR_Students_Record";
+        String user = "sa";
+        String pass = "vnrvjiet1@3";
+		String mentor_id=null;
+        String from_date=null;
+		conn = DriverManager.getConnection(dbURL, user, pass);
+		mentee_stmt = conn.createStatement();
+		mentor_stmt = conn.createStatement();
+		ResultSet mentee_rs=mentee_stmt.executeQuery("select EAMCET_ECET,Branch,Mentor1_ID,Mentor2_ID,Mentor3_ID,From_Date1,From_Date2,From_Date3 from Student_Master_Information where Student_Code='"+(String)request.getSession().getAttribute("user_id")+"'");
+		mentee_rs.next();
+		if(mentee_rs.getString(5)!=null)
+		{
+		mentor_id=mentee_rs.getString(5);
+		}
+		else if(mentee_rs.getString(4)!=null)
+		{
+		mentor_id=mentee_rs.getString(4);	
+		}
+		else if(mentee_rs.getString(3)!=null){
+		mentor_id=mentee_rs.getString(3);		
+		}
+		
+		if(mentee_rs.getString(8)!=null)
+		{
+		from_date=mentee_rs.getString(8);
+		}
+		else if(mentee_rs.getString(7)!=null)
+		{
+		from_date=mentee_rs.getString(7);	
+		}
+		else if(mentee_rs.getString(6)!=null){
+		from_date=mentee_rs.getString(6);		
+		}
+		mentor_stmt = conn.createStatement();
+		
+
+		if(mentor_id==null)
+		{
+			response.sendRedirect("no_mentor.jsp");
+		}
+		else
+		{ 
+			response.sendRedirect("mentor_mentee_information.jsp");
+		}
+conn.close();
+mentor_stmt.close();
+mentee_stmt.close();
+%>	
+<input type="hidden" value='<%=mentor_id%>' name="mentor">
+<input type="hidden" value='<%=from_date%>' name="fromdate">

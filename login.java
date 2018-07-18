@@ -55,7 +55,7 @@ public class login extends HttpServlet
 					else if(user_type.equals("Mentor"))
 						out.print("mentor");
 					else if(user_type.equals("Admin"))
-						out.print("Admin");
+						res.sendRedirect("adminlogin.jsp");
 				}
 				else
 				{

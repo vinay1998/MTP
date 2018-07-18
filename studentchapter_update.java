@@ -42,10 +42,15 @@ public class studentchapter_update extends HttpServlet
 
 		//table head code
 			out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
+<<<<<<< HEAD
 			out.print("<body><form action='studentchapter_update' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");		
+=======
+			//out.print("<link href='css/bootstrap-date-edit.css' rel='stylesheet'><link href='css/bootstrap-datetimepicker.min.css' rel='stylesheet'></head>");//datepicker css links
+			out.print("<body class='sfbg'><form action='studentchapter_update' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");		
+>>>>>>> 62883e4f275965eb684e21bbe80f9917a9af4486
 			out.print("<div class='col-sm-2'><th>S.No</th></div><div class='col-sm-7'><th><center>Student Chapters</center></th></div><div class='col-sm-2'><th></th></div>");				
 			out.print("</tr></div></thead><tbody><div class='row'>");
-		//table body code
+		//table body class='sfbg' code
 
 		while(rs.next())
 		{
@@ -66,7 +71,7 @@ public class studentchapter_update extends HttpServlet
 		}
 			out.print("</div></tbody></table></form>");
 			out.print("<script type='text/javascript' src='js/jquery-1.8.3.min.js' charset='UTF-8'></script><script type='text/javascript' src='js/bootstrap-datetimepicker.js' charset='UTF-8'></script>");//date picker script links
-			out.print("</body></html>");
+			out.print("</body class='sfbg'></html>");
 
 		stmt.close();
 		conn.close();

@@ -60,7 +60,11 @@ public class login_reset_password extends HttpServlet
 			else if(user_details.getString(1).equals("Mentor"))
 				out.print("<h3>Hello!Mentor</h3>");
 			else if(user_details.getString(1).equals("Admin"))
-				out.print("<h3>Hello!Admin</h3>");	
+			{
+				res.sendRedirect("adminlogin.jsp");
+
+			}
+				
 		}
 		stmt.close();
 		conn.close();

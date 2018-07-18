@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>VNR VJIET-MTP </title>
+ 
+<!--=====================================CSS links===============================================-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css"  type="text/css">
+  <link rel="stylesheet" href="vendor/datatables/dataTables.bootstrap4.css" >
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <link rel="stylesheet" href="css\bootstrap.min.css">
+  <link rel="stylesheet" href="css\bootstrap.css">
+  <link rel="stylesheet" href="css\bootstrap-grid.css">
+  <link rel="stylesheet" href="css\bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css\bootstrap-reboot.css">
+  <link rel="stylesheet" href="css\bootstrap-reboot.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="icon" href="images/icons/favicon.ico" type="image/png" />
+  <!--date css links-->
+  <link href="css/bootstrap-date-edit.css" rel="stylesheet">
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+      <!--modal--->
+  <link href="css/jquery.modal.css" rel="stylesheet">
+<!--===============================================================================================-->  
+  
+</head>
+
+<body class="mfbg" id="page-top">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb" style="background-color:transparent;">
+        <li class="breadcrumb-item">
+          <a href="adminlogin.html" target="_top">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Miscillaneous</li>
+      </ol>
+    
+	
+		  
+      <!-- main content-->
+	<div class="container">
+      <!--<br><h1><font color="dodgerblue"><center>Regulation Master</center></font></h1><br>--><br>
+	  <form mathod="post" action="miscillaneous" name="form1" target="display_frame">
+		<div class="form-group">
+			<div class="row">
+			<div class="col-sm-8">
+				<h4>To View Records, Click <button type="submit" name="search" id="search" class="btn btn-primary">Search</button><br>
+			</div>
+			</div><br>
+			<!--<input type="text" id="regulationcode1" name="regulationcode1" />-->
+			<div class="row">
+				<div class="col-sm-6">
+					<h3>Add Record</h3>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col-sm-1">
+					
+				</div>
+				<div class="col-sm-3">
+					<label for="cc"><b>College Code :</b></label>
+					<input class="form-control" id="clgcode" name="clgcode" type="text">
+				</div>
+				<div class="col-sm-1">
+					
+				</div>
+				<div class="col-sm-3">
+					<label for="cc"><b>Course Code :</b></label>
+					<input class="form-control" id="coursecode" name="coursecode" type="text">
+				</div>
+				<div class="col-sm-1">
+					
+				</div>
+				<div class="col-sm-3">
+					<label for="cc"><b>Staff Dept. ID Code :</b></label>
+					<input class="form-control" id="deptcode" name="deptcode" type="text">
+				</div>
+			</div>
+				<br>
+					<center><button type="submit" class="btn btn-primary" name="save" id="save">Save</button></center>
+				
+		
+		<h3>View Records</h3>
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item" src="empty.html" name="display_frame"></iframe>
+			</div>
+		</div>
+	</form>
+	</div>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+	
+	   <!--=====================================Script links==============================================-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="js\bootstrap.bundle.js"></script>
+    <script src="js\bootstrap.bundle.min.js"></script>
+    <script src="js\bootstrap.js"></script>
+    <script src="js\bootstrap.min.js"></script>
+	<script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="js/sb-admin.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="js/main.js"></script>
+	<!--date scripts links-->
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+	<!--new links-->
+	<!--auto textarea size-->
+	<script src='js/jquery.autosize.js' charset="UTF-8"></script>
+	<!--modal-->
+	<script src='js/jquery.modal.js' charset="UTF-8"></script>
+	<!---->
+	<script src="js/main.js"></script> 
+<!--===============================================================================================-->
+</body>
+
+</html>
+

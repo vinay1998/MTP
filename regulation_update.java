@@ -43,7 +43,7 @@ public class regulation_update extends HttpServlet
 		//table head code
 			out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 			out.print("<link href='css/bootstrap-date-edit.css' rel='stylesheet'><link href='css/bootstrap-datetimepicker.min.css' rel='stylesheet'></head>");//datepicker css links
-			out.print("<body><form action='regulation_update' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");		
+			out.print("<body class='sfbg'><form action='regulation_update' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");		
 			out.print("<div class='col-sm-2'><th>S.No</th></div><div class='col-sm-7'><th><center>Regulation Codes</center></th></div><div class='col-sm-2'><th></th></div>");				
 			out.print("</tr></div></thead><tbody><div class='row'>");
 		//table body code

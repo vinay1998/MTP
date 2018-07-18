@@ -50,11 +50,12 @@ public class industrial_visit_update extends HttpServlet
 		rs_date = stmt_date.executeQuery("SELECT Visited_Date FROM Student_Local_Industrial_Visits where Years="+year+" order by Local_Industries_ID desc");
 
 	//table head code
-		out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
+		out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'><link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.1.0/css/regular.css' integrity='sha384-avJt9MoJH2rB4PKRsJRHZv7yiFZn8LrnXuzvmZoD3fh1aL6aM6s0BBcnCvBe6XSD' crossorigin='anonymous'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
 		out.print("<link href='css/bootstrap-date-edit.css' rel='stylesheet'><link href='css/bootstrap-datetimepicker.min.css' rel='stylesheet'></head>");//datepicker css links
-		out.print("<body class='sfbg'><form action='industrial_update_save' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");		
-		out.print("<div class='col-sm-2'><th>Name of the Industry Visited</th></div><div class='col-sm-3'><th>Visited Date</th></div><div class='col-sm-3'><th>Learning Points</th></div><div class='col-sm-3'><th>Action Plan</th></div><div class='col-sm-1'><th></th></div>");	
-		out.print("</tr></div></thead><tbody><div class='row'>");	
+		out.print("<body class='sfbg'><form action='industrial_update_save' target='_self'><table class='table table-hover' id='data'><thead><div class='row'><tr class='table100-head theadrow'>");
+		out.print("<div class='col-sm-2'><th>Name of the Industry Visited</th></div><div class='col-sm-3'><th>Visited Date</th></div><div class='col-sm-3'><th>Learning Points</th></div><div class='col-sm-3'><th>Action Plan</th></div><div class='col-sm-1'><th></th></div>");			
+	    out.print("</tr></div></thead><tbody><div class='row'>");	
+	
 		//table body code
 
 		while(rs.next())
@@ -63,22 +64,14 @@ public class industrial_visit_update extends HttpServlet
 
 			if(req.getParameter(String.valueOf(rs.getInt(5)))!=null)
 			{
-				out.print("<thead><div class='row'><tr>");		
-				out.print("<div class='col-sm-4'><th></th></div><div class='col-sm-2'><th></th></div><div class='col-sm-3'><th></th></div><div class='col-sm-3'><th></th></div>");	
-				out.print("</tr></div></thead><tbody><div class='row'>");	
-				out.print("<tr class='tbodyrow'><div class='col-sm-4'><td><textarea class='form-control' rows='5' cols='25' name='nameoftheindustryvisited1'>"+rs.getString(1)+"</textarea></td></div><div class='col-sm-2'><td><div class='controls input-append date form_date' data-date='' data-date-format='dd-mm-yyyy' data-link-field='id_date' data-link-format='yyyy-mm-dd'><p><input class=' form-control' type='text' value='"+rs.getString(2)+"' Style='background-color: white;' placeholder='dd-mm-yyyy' id='id_dateofvisit'readonly><span class='add-on'><i class='fa fa-calendar'></i></span></p></div><input type='hidden' value='"+rs_date.getString(1)+"' name='dateofvisit' id='id_date' value=''/></td></div>");
-				out.print("<div class='col-sm-3'><td><textarea class='form-control' rows='5' cols='35' name='learningpoints1'>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-3'><td><textarea class='form-control' rows='5' cols='35' name='actionplan1'>"+rs.getString(4)+"</textarea></td></div></tr></div></tbody>");			
-
-
-				out.print("<thead><div class='row'><tr>");		
-				out.print("<div class='col-sm-12'><th></th></div>");	
-				out.print("</tr></div></thead><tbody><div class='row'>");
-				out.print("<tr><div class='col-sm-12'><td><center><button type='submit' class='btn btn-primary' name='update' value='"+rs.getString(5)+"'>Update</button></center></td></div></tr></div></tbody>");			
+				out.print("<tbody><div class='row'>");	
+				out.print("<tr class='tbodyrow'><div class='col-sm-3'><td><textarea class='form-control' rows='5' cols='25' name='nameoftheindustryvisited1'>"+rs.getString(1)+"</textarea></td></div><div class='col-sm-2'><td><div class='controls input-append date form_date' data-date='' data-date-format='dd-mm-yyyy' data-link-field='id_date' data-link-format='yyyy-mm-dd'><p><input class=' form-control' type='text' value='"+rs.getString(2)+"' Style='background-color: white;' placeholder='dd-mm-yyyy' id='id_dateofvisit'readonly><span class='add-on'><i class='fa fa-calendar'></i></span></p></div><input type='hidden' value='"+rs_date.getString(1)+"' name='dateofvisit' id='id_date' value=''/></td></div>");
+				out.print("<div class='col-sm-3'><td><textarea class='form-control' rows='5' cols='35' name='learningpoints1'>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-3'><td><textarea class='form-control' rows='5' cols='35' name='actionplan1'>"+rs.getString(4)+"</textarea></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-success' name='update' value="+rs.getInt(5)+"><i class='far fa-check-circle' style='font-size:25px;'></i></button></td></div></tr></div></tbody>");			
 
 			}
 			else
 			{
-				out.print("<tr class='tbodyrow'><div class='col-sm-2'><td><textarea class='form-control' style='background-color:white' rows='5' cols='25'  disabled>"+rs.getString(1)+"</textarea></td></div><div class='col-sm-3'><td><p>"+rs.getString(2)+"</p></td></div><div class='col-sm-3'><td><textarea class='form-control' style='background-color:white' rows='5' cols='35'  disabled>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-3'><td><textarea class='form-control' style='background-color:white' rows='5' cols='35' disabled>"+rs.getString(4)+"</textarea></td></div><div class='col-sm-1'><td><button disabled type='submit' class='btn btn-primary' name='"+rs.getInt(5)+"'>Edit</button></td></div></tr>");			
+				out.print("<tr class='tbodyrow'><div class='col-sm-2'><td><textarea class='form-control' style='background-color:white' rows='5' cols='25'  disabled>"+rs.getString(1)+"</textarea></td></div><div class='col-sm-3'><td><p>"+rs.getString(2)+"</p></td></div><div class='col-sm-3'><td><textarea class='form-control' style='background-color:white' rows='5' cols='35'  disabled>"+rs.getString(3)+"</textarea></td></div><div class='col-sm-3'><td><textarea class='form-control' style='background-color:white' rows='5' cols='35' disabled>"+rs.getString(4)+"</textarea></td></div><div class='col-sm-1'><td><button disabled type='submit' class='btn btn-primary btn-sm' name='"+rs.getInt(5)+"'><span class='glyphicon glyphicon-pencil' style='font-size:25px;'></span></button></td></div></tr>");			
 			
 			}
 			

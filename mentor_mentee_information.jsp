@@ -14,8 +14,8 @@
 		String dbURL = "jdbc:sqlserver://10.45.29.254;DatabaseName=VNR_Students_Record";
         String user = "sa";
         String pass = "vnrvjiet1@3";
-		String mentor_id="";
-        String from_date="";
+		String mentor_id=null;
+        String from_date=null;
 		conn = DriverManager.getConnection(dbURL, user, pass);
 		mentee_stmt = conn.createStatement();
 		mentor_stmt = conn.createStatement();
@@ -29,7 +29,7 @@
 		{
 		mentor_id=mentee_rs.getString(4);	
 		}
-		else{
+		else if(mentee_rs.getString(3)!=null){
 		mentor_id=mentee_rs.getString(3);		
 		}
 		
@@ -41,17 +41,24 @@
 		{
 		from_date=mentee_rs.getString(7);	
 		}
-		else{
+		else if(mentee_rs.getString(6)!=null){
 		from_date=mentee_rs.getString(6);		
 		}
 		mentor_stmt = conn.createStatement();
 		
+		if(mentor_id==null)
+		{
+			response.sendRedirect("no_mentor.jsp");
+		}
 		
 		ResultSet mentor_rs=mentor_stmt.executeQuery("select Staff_Name,Date_Of_Birth,Designation,Academic_Qualification,Papers_National,Papers_International,Conferences_National,Conferences_International,Memberships_Of_Prof_Bodies,Consultations,Research_Interests,Other_Interests from Staff_Master where Staff_Code='"+mentor_id+"'");
 		mentor_rs.next();
 		
 		
+		
+		
 %>
+
 <!--DOCTYPE html-->
 <html lang="en">
 <head>
@@ -337,3 +344,4 @@
 </body>
 
 </html>
+

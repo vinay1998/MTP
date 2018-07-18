@@ -39,7 +39,10 @@
 </head>
  
  
-<body>
+<body class="mfbg" id="page-top">
+
+
+
       <!-- Breadcrumbs-->
       <ol class="breadcrumb" style="background-color:transparent;">
         <li class="breadcrumb-item">
@@ -152,6 +155,10 @@
 	</form>
 	</div>
 	
+	<!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
 	
       <!--=====================================Script links==============================================-->
 	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->

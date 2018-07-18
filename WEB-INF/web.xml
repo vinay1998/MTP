@@ -265,6 +265,35 @@
 <url-pattern>/studentmasterinfo</url-pattern>
 </servlet-mapping>
 
+
+
+<servlet>
+<servlet-name>miscillaneous</servlet-name>
+<servlet-class>miscillaneous</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>miscillaneous</servlet-name>
+<url-pattern>/miscillaneous</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>miscillaneous-update</servlet-name>
+<servlet-class>miscillaneous_update</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>miscillaneous-update</servlet-name>
+<url-pattern>/misupdate</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>miscillaneous-update1</servlet-name>
+<servlet-class>miscillaneous</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>miscillaneous-update1</servlet-name>
+<url-pattern>/misupdate1</url-pattern>
+</servlet-mapping>
+
 <servlet>
 <servlet-name>rm</servlet-name>
 <servlet-class>regulationmaster</servlet-class>
@@ -374,6 +403,7 @@
 </servlet-mapping>
 
 <servlet>
+<<<<<<< HEAD
 <servlet-name>mentor_mentee_overview</servlet-name>
 <servlet-class>mentor_mentee_overview</servlet-class>
 </servlet>
@@ -400,4 +430,22 @@
 <url-pattern>/mmo_update1</url-pattern>
 </servlet-mapping>
 
+=======
+<servlet-name>mr</servlet-name>
+<servlet-class>mentor_reviews</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>mr</servlet-name>
+<url-pattern>/mentor_reviews</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>mru</servlet-name>
+<servlet-class>mentor_reviews_update</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>mru</servlet-name>
+<url-pattern>/mentor_reviews_update</url-pattern>
+</servlet-mapping>
+>>>>>>> 62883e4f275965eb684e21bbe80f9917a9af4486
 </web-app>

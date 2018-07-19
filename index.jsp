@@ -49,7 +49,11 @@
   <link href="css/media-query.css" rel="stylesheet">
   <style>
 	body {
+<<<<<<< HEAD
 		overflow: hidden;
+=======
+		overflow:hidden;
+>>>>>>> c471d2c5d4042cd7cee107563efd7e27f29f6156
 		height:100%;
 		background-image: url("img/background.jpg") ;
 		background-position: center;

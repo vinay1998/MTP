@@ -1,34 +1,4 @@
 
-
-<%@ page import="java.io.*,java.util.Date,java.text.SimpleDateFormat,java.sql.*,javax.servlet.*,javax.servlet.http.*" %>
-
-<%
-	//global object declaration section
-    Connection conn = null;
-	Statement stmt = null;
-	ResultSet user_name=null;
-	response.setContentType("text/html");
-	
-
-	//jdbc logic section
-
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		String dbURL = "jdbc:sqlserver://10.45.29.254;DatabaseName=VNR_Students_Record";
-        String user = "sa";
-        String pass = "vnrvjiet1@3";
-        conn = DriverManager.getConnection(dbURL, user, pass);
-		stmt = conn.createStatement();
-		
-		String user_id = (String)request.getSession().getAttribute("user_id");
-		if(user_id==null)
-			response.sendRedirect("login.jsp");
-		user_name=stmt.executeQuery("select Student_Name from Student_Master_Information where Student_Code='"+user_id+"'");
-		user_name.next();
-		request.getSession().setAttribute("user_name",user_name.getString(1));
-		
-		stmt.close();
-		conn.close();
-%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -133,15 +103,6 @@
 </head>
 
 <body class="mfbg" id="page-top"  >
-
-	<%
-		
-			response.setHeader("Pragma","no-cache"); 
-			response.setHeader("Cache-Control","no-store"); 
-			response.setHeader("Expires","0"); 
-			response.setDateHeader("Expires",-1);	
-		
-	%>
 
 	
   <!-- Navigation-->
@@ -276,7 +237,7 @@
 				  </a>
 		</li>
 		<li class="nav-item " data-toggle="tooltip" data-placement="right" title="My Journey" style="padding-top:1em;padding-bottom:1em;">
-				  <a class="nav-link-sub hover-color" href="construction_page.html" target="pages"  >
+				  <a class="nav-link-sub hover-color" href="myjourney.jsp" target="pages"  >
 					<i class="fa fa-fw fa-road "></i>
 					<span class="nav-link-text " >My Journey</span>
 				  </a>

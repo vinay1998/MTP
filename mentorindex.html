@@ -1,39 +1,9 @@
-
-
-<%@ page import="java.io.*,java.util.Date,java.text.SimpleDateFormat,java.sql.*,javax.servlet.*,javax.servlet.http.*" %>
-
-<%
-	//global object declaration section
-    Connection conn = null;
-	Statement stmt = null;
-	ResultSet user_name=null;
-	response.setContentType("text/html");
-	
-
-	//jdbc logic section
-
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		String dbURL = "jdbc:sqlserver://10.45.29.254;DatabaseName=VNR_Students_Record";
-        String user = "sa";
-        String pass = "vnrvjiet1@3";
-        conn = DriverManager.getConnection(dbURL, user, pass);
-		stmt = conn.createStatement();
-		
-		String user_id = (String)request.getSession().getAttribute("user_id");
-		if(user_id==null)
-			response.sendRedirect("login.jsp");
-		user_name=stmt.executeQuery("select Student_Name from Student_Master_Information where Student_Code='"+user_id+"'");
-		user_name.next();
-		request.getSession().setAttribute("user_name",user_name.getString(1));
-		
-		stmt.close();
-		conn.close();
-%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -49,7 +19,7 @@
   <link href="css/media-query.css" rel="stylesheet">
   <style>
 	body {
-		overflow: hidden;
+		 overflow:hidden;
 		height:100%;
 		background-image: url("img/background.jpg") ;
 		background-position: center;
@@ -58,49 +28,63 @@
 	}
 
 	
-	iframe {
-	     	border :1px solid black;
-			border-style: outset;
-			-webkit-border-radius: 12px; 
-			-moz-border-radius: 12px; 
-			border-radius: 12px;
-			box-shadow: 1px -4px 9px 4px #5E5C58;
-				
-    }		
-	.content-wrapper{
+	 iframe {
+	     		border :1px solid black;
+				border-style: outset;
+				-webkit-border-radius: 12px; 
+				-moz-border-radius: 12px; 
+				border-radius: 12px;
+				box-shadow: 1px -4px 9px 4px #5E5C58;
+     }		
+	 .content-wrapper
+      {
 	    	-webkit-border-radius: 12px; 
-			-moz-border-radius: 12px; 
-			border-radius: 12px;	
-	}	 
+				-moz-border-radius: 12px; 
+				border-radius: 12px;
+				
+	  }	 
 	  
 
 .preloader-1 {
   margin: 150px auto 0;
-  margin-top: 250px;
-  margin-left: 45%;
-  width: 606px;
+  width: 66px;
+  height: 12px;
+}
+
+.preloader-2 {
+  margin: 200px auto 0;
+    width: 66px;
   height: 12px;
 }
 
 
+
 .preloader-1 .line {
-  width: 2px;
-  height: 20px;
+  width: 1px;
+  height: 12px;
   background: #fff;
   margin: 0 1px;
   display: inline-block;
   animation: opacity-1 1000ms infinite ease-in-out;
 }
 
+.preloader-2 .line {
+  width: 1px;
+  height: 12px;
+  background: #fff;
+  margin: 0 1px;
+  display: inline-block;
+  animation: opacity-2 1000ms infinite ease-in-out;
+}
 
-.preloader-1 .line-1{ animation-delay: 800ms; }
-.preloader-1 .line-2{ animation-delay: 600ms; }
-.preloader-1 .line-3{ animation-delay: 400ms; }
-.preloader-1 .line-4{ animation-delay: 200ms; }
-.preloader-1 .line-6{ animation-delay: 200ms; }
-.preloader-1 .line-7{ animation-delay: 400ms; }
-.preloader-1 .line-8{ animation-delay: 600ms; }
-.preloader-1 .line-9{ animation-delay: 800ms; }
+.preloader-1 .line-1, .preloader-2 .line-1 { animation-delay: 800ms; }
+.preloader-1 .line-2, .preloader-2 .line-2 { animation-delay: 600ms; }
+.preloader-1 .line-3, .preloader-2 .line-3 { animation-delay: 400ms; }
+.preloader-1 .line-4, .preloader-2 .line-4 { animation-delay: 200ms; }
+.preloader-1 .line-6, .preloader-2 .line-6 { animation-delay: 200ms; }
+.preloader-1 .line-7, .preloader-2 .line-7 { animation-delay: 400ms; }
+.preloader-1 .line-8, .preloader-2 .line-8 { animation-delay: 600ms; }
+.preloader-1 .line-9, .preloader-2 .line-9 { animation-delay: 800ms; }
 
 @keyframes opacity-1 { 
   0% { 
@@ -129,42 +113,32 @@
   }  
 }
 </style>
-
 </head>
 
-<body class="mfbg" id="page-top"  >
-
-	<%
-		
-			response.setHeader("Pragma","no-cache"); 
-			response.setHeader("Cache-Control","no-store"); 
-			response.setHeader("Expires","0"); 
-			response.setDateHeader("Expires",-1);	
-		
-	%>
-
-	
+<body class="fixed-nav " style="background-color: #ffffff;" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" id="mainNav">
 	<img src="img/vnrvjiet.jpg" class="img-responsive" alt="VNR VJIET" height="3%" width="3%">&nbsp;&nbsp;&nbsp;
-    <a class="navbar-brand nothide" href="index.jsp">VNR Vignana Jyothi Institute of Engineering and Technology - MTP</a>
-	<a class="navbar-brand hide" href="index.jsp">VNR VJIET - MTP</a>
+    <a class="navbar-brand nothide" href="mentorindex.jsp">VNR Vignana Jyothi Institute of Engineering and Technology - MTP</a>
+	<a class="navbar-brand hide" href="index.jsp">VNR Vignana Jyothi Institute of Engineering and Technology - MTP</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse " id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="overflow-y:auto;">
+    <div class="collapse navbar-collapse" data-spy="scroll" id="navbarResponsive" >
+		
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="overflow-y:auto;" height='100%'>
+	  
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="construction_page.html" target="pages">
+          <a class="nav-link" href="mentorindex.jsp">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-		<li class="nav-item " data-toggle="tooltip" data-placement="right" title="Student Master Information" style="padding-top:1em;padding-bottom:1em;">
-				  <a class="nav-link-sub hover-color" href="student_data_check.jsp" target="pages"  >
-					<i class="fa fa-vcard-o "></i>
-					<span class="nav-link-text " >Student Master Information</span>
-				  </a>
+		<li class="nav-item " data-toggle="tooltip" data-placement="right" title="Staff Master Information" style="padding-top:1em;padding-bottom:1em;">
+			  <a class="nav-link-sub hover-color" href="staff_data_check.jsp" target="pages"  >
+				<i class="fa fa-vcard-o"></i>
+				<span class="nav-link-text " >Staff Master Information</span>
+			  </a>
 		</li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Mentoring">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
@@ -174,35 +148,30 @@
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
 
 			 <li>
-              <a href="mentor_mentee_information.jsp" target="pages">Mentor - Mentee Information</a>
+              <a href="mentor_mentee_information.html" target="pages" id='mi'>Mentor - Mentee Information</a>
             </li>
 			<li>
-              <a href="mentor_mentee_overview.jsp" target="pages">Mentor - Mentee Overview</a>
+              <a href="mentor_mentee_overview.html" target="pages" id='mi'>Mentor - Mentee Overview</a>
             </li>
             <li>
-              <a href="mentor_mentee_meetings.jsp" target="pages">Mentor - Mentee Meetings</a>
+              <a href="record_of_mentor_mentee_meetings.jsp" target="pages" id='mi'>Mentor - Mentee Meetings</a>
             </li>
             <li>
-              <a href="swot_analysis.jsp" target="pages">SWOT Analysis</a>
+              <a href="swot_analysis.jsp" target="pages" id='mi'>SWOT Analysis</a>
             </li>
 			<li>
-              <a href="attendance.jsp" target="pages">Attendance</a>
+              <a href="attendance.jsp" target="pages" id='mi'>Attendance</a>
             </li>
 			
 			<li>
-              <a href="mentor_reviews.jsp" target="pages">Mentor Reviews</a>
+              <a href="mentor_reviews.jsp" target="pages" id='mi'>Mentor Reviews</a>
             </li>
 			<li>
-              <a href="internalsmarks.jsp" target="pages">Internal Marks</a>
-            </li>
-			<li>
-              <a href="semestermarks.jsp" target="pages">Semester Marks</a>
-            </li>
-			<li>
-              <a href="marksreport.jsp" target="pages">Marks Report</a>
+              <a href="marksreport.jsp" target="pages" id='mi'>Marks Report</a>
             </li>
           </ul>
         </li>
+		<input type="text" name="mi1" id='mi1'/>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="ECA & CCA">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-futbol-o"></i>
@@ -210,19 +179,19 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="industrialvisits.jsp" target="pages">Industrial Visits</a>
+              <a href="industrialvisits.jsp" target="pages" id='mi'>Industrial Visits</a>
             </li>
             <li>
-              <a href="outstationtechnical.jsp" target="pages">Outstation Technical Visits</a>
+              <a href="outstationtechnical.jsp" target="pages" id='mi'>Outstation Technical Visits</a>
             </li>
 			<li>
-              <a href="summertraining.jsp" target="pages">Summer Training Visits</a>
+              <a href="summertraining.jsp" target="pages" id='mi'>Summer Training Visits</a>
             </li>
 			<li>
-              <a href="cca_activities.jsp" target="pages">CCA Activities</a>
+              <a href="cca_activities.jsp" target="pages" id='mi'>CCA Activities</a>
             </li>
 			<li>
-              <a href="eca_activities.jsp" target="pages">ECA Activities</a>
+              <a href="mentor_eca.html" target="pages" id='mi'>ECA Activities</a>
             </li>
           </ul>
         </li>
@@ -237,70 +206,71 @@
               <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti1">Grooming Sessions</a>
               <ul class="sidenav-third-level collapse" id="collapseMulti1">
 				<li>
-				  <a href="cultivaterightattitude.html" target="pages">Cultivate Right Attitude</a>
+				  <a href="cultivaterightattitude.html" target="pages" id='mi'>Cultivate Right Attitude</a>
 				</li>
 				<li>
-				  <a href="softskills.html" target="pages">Soft Skills</a>
+				  <a href="softskills.html" target="pages" id='mi'>Soft Skills</a>
 				</li>
               </ul>
             </li>
             <li>
-              <a href="campusinterviewtraining.html" target="pages">Campus Interview Training</a>
+              <a href="campusinterviewtraining.html" target="pages" id='mi'>Campus Interview Training</a>
             </li>
 			<li>
-              <a href="campusinterviewtrainingreview.html" target="pages">Campus Interview Training Review</a>
+              <a href="campusinterviewtrainingreview.html" target="pages" id='mi'>Campus Interview Training Review</a>
             </li>
             <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2" target="pages">Assessment Report</a>
+              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Assessment Report</a>
               <ul class="sidenav-third-level collapse" id="collapseMulti2">
                 <li>
-                  <a href="mockaptitudetest.html" target="pages">Mock Aptitude Test</a>
+                  <a href="mockaptitudetest.html" target="pages" id='mi'>Mock Aptitude Test</a>
                 </li>
                 <li>
-                  <a href="mockinterviews.html" target="pages">Mock Interviews</a>
+                  <a href="mockinterviews.html" target="pages" id='mi'>Mock Interviews</a>
                 </li>
               </ul>
             </li>
 			<li>
-              <a href="selfassessmentreport.html" target="pages">Semester End Self Assessment Report</a>
+              <a href="selfassessmentreport.html" target="pages"id='mi'>Semester End Self Assessment Report</a>
             </li>
 			<li>
-              <a href="eligibility_placements.html" target="pages">Eligibility for Placements</a>
+              <a href="eligibility_placements.html" target="pages" id='mi'>Eligibility for Placements</a>
             </li>
           </ul>
         </li>
 		<li class="nav-item " data-toggle="tooltip" data-placement="right" title="Student Matrixing" style="padding-top:1em;padding-bottom:1em;">
-				  <a class="nav-link-sub hover-color" href="student_matrixing.jsp" target="pages"  >
+				  <a class="nav-link-sub hover-color" href="student_matrixing.jsp" target="pages" data-parent="#exampleAccordion" >
 					<i class="fa fa-fw fa-user-circle "></i>
-					<span class="nav-link-text " >Student Matrixing</span>
+					<span class="nav-link-text " id='mi'>Student Matrixing</span>
 				  </a>
 		</li>
 		<li class="nav-item " data-toggle="tooltip" data-placement="right" title="My Journey" style="padding-top:1em;padding-bottom:1em;">
-				  <a class="nav-link-sub hover-color" href="construction_page.html" target="pages"  >
+				  <a class="nav-link-sub hover-color" href="myjourney.html" target="pages"  >
 					<i class="fa fa-fw fa-road "></i>
 					<span class="nav-link-text " >My Journey</span>
 				  </a>
 		</li>
 		<li class="nav-item " data-toggle="tooltip" data-placement="right" title="Alumni Association Form" style="padding-top:1em;padding-bottom:1em;">
-				  <a class="nav-link-sub hover-color" href="alumniassociationform.jsp" target="pages"  >
+				  <a class="nav-link-sub hover-color" href="alumniassociationform.jsp" target="pages" id='mi' >
 					<i class="fa fa-fw fa-file-text "></i>
 					<span class="nav-link-text " >Alumni Association Form</span>
 				  </a>
 		</li>
 		<li class="nav-item " data-toggle="tooltip" data-placement="right" title="Change Password" style="padding-top:1em;padding-bottom:1em;">
-				  <a class="nav-link-sub hover-color" href="changepassword.jsp" target="pages"  >
+				  <a class="nav-link-sub hover-color" href="changepassword.html" target="pages" >
 					<i class="fa fa-edit "></i>
 					<span class="nav-link-text " >Change Password</span>
 				  </a>
 		</li>
       </ul>
-      <ul class="navbar-nav sidenav-toggler" >
+	  <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
       </ul>
+      
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -383,15 +353,37 @@
           <form class="form-inline my-2 my-lg-0 mr-lg-2">
             <div class="input-group">
               <input class="form-control" list="search-pages" type="text" placeholder="Search for..." id="list">
-                    <datalist id="search-pages" class="datalist" >
-						
+                    <datalist id="search-pages"  >
+						<option value="Mentor - Mentee Information" ><a href="mentor_mentee_information.html" target="pages" >Mentor - Mentee Information</a></option>
+						<option value="Mentor - Mentee Overview" ><a href="mentor_mentee_overview.html" target="pages" >Mentor - Mentee Overview</a></option>
+						<option value="Mentor - Mentee Meetings"><a href="record_of_mentor_mentee_meetings.jsp" target="pages" ></option>
+						<option value="Staff Master Information"><a href="mentor_mentee_information.html" target="pages" id='ind'></option>
+						<option value="SWOT Analysis">
+						<option value="Attendance">
+						<option value="Mentor Reviews">
+						<option value="Marks Report">
+						<option value="Industrial Visits">
+						<option value="Outstation Technical Visits" >
+						<option value="Summer Training Visits">
+						<option value="CCA Activities">
+						<option value="ECA Activities">
+						<option value="Cultivate Right Attitude">
+						<option value="Soft Skills" >
+						<option value="Campus Interview Training">
+						<option value="Campus Interview Training Review">
+						<option value="Mock Aptitude Test">
+						<option value="Mock Interviews">
+						<option value="Semester End Self Assessment Report">
+						<option value="Eligibility for Placements">
+						<option value="Student Matrixing">
+						<option value="My Journey">
+						<option value="Alumni Association Form">
+						<option value="Change Password">
 					</datalist>
-	   
-	   
 				<span class="input-group-append">
-                <a target="pages"><button class="btn btn-primary btn-lg" type="button"id="page-search">
+                <button class="btn btn-primary" type="button">
                   <i class="fa fa-search"></i>
-                </button></a>
+                </button>
               </span>
             </div>
           </form>
@@ -403,8 +395,8 @@
       </ul>
     </div>
   </nav>
-
-  <div class="content-wrapper" style="padding-top:0.2%;padding-right:.8%;padding-left:.8%;padding-down:.5%;background-color:transparent;">
+  
+   <div class="content-wrapper" style="padding-top:0.2%;padding-right:.8%;padding-left:.8%;padding-down:.5%;background-color:transparent;">
 	  <div class="preloader-1" id="preloader-1">
 	  <div style="color:white">Loading</div>
 	  <span class="line line-1"></span>
@@ -417,36 +409,55 @@
 	  <span class="line line-8"></span>
 	  <span class="line line-9"></span>
 	</div>
-
-	<br/><br/><br/>
+	<div class="preloader-2" id="preloader-2">
+	  <span class="line line-1"></span>
+	  <span class="line line-2"></span>
+	  <span class="line line-3"></span>
+	  <span class="line line-4"></span>
+	  <span class="line line-5"></span>
+	  <span class="line line-6"></span>
+	  <span class="line line-7"></span>
+	  <span class="line line-8"></span>
+	  <span class="line line-9"></span>
+	  <div style="color:white">Loading</div>
+	</div>
 	<div class="container-fluid contents" id="frame" style="position:relative;max-width:100%">
-      <iframe class="" src="construction_page.html" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" frameborder="0" name="pages" id="pages" ></iframe>
+      <iframe class="" src="mentorindex.html" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" frameborder="0" name="pages" id="pages" ></iframe>
 	</div>
   </div>
     
+	
+	<!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    </footer>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-	
-	<!-- Logout Modal-->
+    <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
           </div>
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="logout.jsp">Logout</a>
+            <a class="btn btn-primary" href="Login\login.html">Logout</a>
           </div>
         </div>
       </div>
     </div>
-	</div>
-	
-    <!-- Bootstrap core JavaScript-->
+     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
@@ -464,15 +475,40 @@
   <script>
     function div_height() {
 		var height = $(window).height();
-		var divheight = (90 * height) / 100;
+		var divheight = (99 * height) / 100;
 		divheight = parseInt(divheight) + 'px';
 		$("#frame").css('height',divheight);
     }
+	
+    
+	
 	$(document).ready(function() {
 		//alert($("#navbarResponsive").height());
 		div_height();
-		$(window).bind('resize', div_height);
+		$(window).bind('resize', divheight);
 	});
+	
+/*	$(".navbar-toggler-right").click(function(){
+		//alert($("#navbarResponsive").height());
+		//alert($("#frame").height());
+		var height = $(window).height();
+        var divheight = ((99 * height) / 100);   //-$("#navbarResponsive").height()
+        divheight = parseInt(divheight) + 'px';
+  //      height= parseInt(height) + 'px';
+		
+//		$("#frame").animate({paddingTop: "+=100px"});
+        $("#frame").css('height',divheight);
+		//alert($("#frame").height());
+	});*/
+	
+	$(document).ready(function() {
+	$('#exampleAccordion a , #exampleAccordion a span').click(function(){
+	
+         $('#mi1').val($(this).text().trim()); 
+		
+        });
+});
+
 	
 	//preloader when we try to load new page to iframe
 	 $('a[target="pages"]').click(function(){
@@ -487,63 +523,17 @@
 	    });
 	//------------
 
-	//links pages when search button is clicked----------
- 	var flag=1;
-	$("#page-search").on("click",function(e){
-		 //alert("a"+$("#page-search").parent().attr("href")+"a");
-		 if(flag==1)
-		 { //alert("yes");
-		  e.preventDefault();
-		  $("#exampleAccordion > li > a > span , #exampleAccordion > li > ul > li > a").each(function(){
-			//alert($(this).text()+' '+$("#list").val());
-				if($("#list").val() == $(this).text())
-				{
-				  //alert("yes");
-				   if($(this).attr("href"))
-				   {
-					$("#page-search").parent().attr("href",$(this).attr("href"));
-				   }
-				   else
-				   {
-					 $("#page-search").parent().attr("href",$(this).parent().attr("href"));
-				   }		   
-					// alert("-"+$("#page-search").parent().attr("href"));
-                    flag=0;					
-					document.getElementById("page-search").click();
-					 
-				}
-			});
-		 }
-		 else
-		 {
-		   flag=1;
-		 }
-	});
-	$("#exampleAccordion > li > a > span , #exampleAccordion > li > ul > li > a").each(function(){
-		$('#search-pages').append('<option value="'+$(this).text()+'"></option>')
-	});
-	$('#search-pages').find('option[value="Dashboard"]').remove();
-	$('#search-pages').find('option[value="Mentoring"]').remove();
-	$('#search-pages').find('option[value="ECA & CCA"]').remove();
-	$('#search-pages').find('option[value="Training & Placement"]').remove();
 	
 	$('#search-pages > option').each(function(){
 		$(this).attr('disabled', 'disabled');
 	});
-	
-	$('#list').keyup(function() {
-        if (!$(this).value) {
-			$('#search-pages > option').each(function(){
-				$(this).attr('disabled', 'disabled');
-			});        
-        }
-    });
 	
 	$('#list').on("input",function(){
 		$('#search-pages > option').each(function(){
 			$(this).removeAttr('disabled');
 		});
 	});
+
 	
   </script>
 </body>

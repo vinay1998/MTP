@@ -428,11 +428,11 @@
 </servlet-mapping>
 
 <servlet>
-<servlet-name>mr</servlet-name>
+<servlet-name>mreviews</servlet-name>
 <servlet-class>mentor_reviews</servlet-class>
 </servlet>
 <servlet-mapping>
-<servlet-name>mr</servlet-name>
+<servlet-name>mreviews</servlet-name>
 <url-pattern>/mentor_reviews</url-pattern>
 </servlet-mapping>
 

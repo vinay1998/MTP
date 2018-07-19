@@ -39,15 +39,14 @@
 			<li class="breadcrumb-item">
 				<a href="index.jsp" target="_top">Home</a>
 			</li>
-        <li class="breadcrumb-item active">Mentoring&nbsp; / &nbsp;Attendance</li>
+        <li class="breadcrumb-item active">Student Matrixing</li>
       </ol>
 	
 	
 	<form>
 		<div class="container">
 			<div class="form-group">
-				<div class="row">
-			    	<div class="col-sm-1"> </div>                
+				<div class="row">            
 					<div class="col-sm-2">
 						<label for="rollno"><b>Roll No.:</b></label>
 						<input class="form-control" name="rollno" id="rollno" type="text" value="<%=(String)request.getSession().getAttribute("user_id")%>"  style="background-color:white;" readonly>
@@ -75,10 +74,8 @@
 						</select>
 					</div>
 					<div class="col-sm-2">
-						<br/>
 						<button type="submit" class="btn btn-primary" name="msearch" id="msearch" title="Choose Year and Semester to enable">Search</button>						
 					</div>
-					<div class="col-sm-1"> </div>
 				</div>
 			</div>
 			<br/>

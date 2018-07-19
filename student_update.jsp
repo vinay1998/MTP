@@ -12,7 +12,7 @@
 	ResultSet rs2=null;
 	ResultSet rs3=null;
 	response.setContentType("text/html");
-	String sno=(String)request.getSession().getAttribute("user_id");
+	String sno="15071A1270";
 	
 
 	//jdbc logic section
@@ -53,13 +53,7 @@
 		date11=rs.getString(59);
 		date22=rs.getString(60);
 		date33=rs.getString(61);
-		if(rs2.getString(3)=="1900-01-01" && rs.getString(59)=="01-01-1900")
-		{date1="HELLO";date11=" ";}
-		if(rs2.getString(4)=="1900-01-01" && rs.getString(60)=="01-01-1900")
-		{date2="dd-mm-yyyy";date22="dd-mm-yyyy";}
-		if(rs2.getString(5)=="1900-01-01" && rs.getString(61)=="01-01-1900")
-		{date3="dd-mm-yyyy";date33="dd-mm-yyyy";}
-			
+		
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -917,21 +911,31 @@ $(document).ready(function(){
 	  {
 		  age();
 	  } 
-	  alert('<%=date22%>');
+	  
+	    if('<%=date11%>'=='01-01-1900')
+		{
+			$('id_dateofinteraction').val('');
+			//alert('a');
+		}	  
+		else
+		{
+			$('id_dateofinteraction').val('<%=date11%>');
+		}
+	  //alert('<%=date22%>');
         if('<%=date22%>'=='01-01-1900')
 		{
 			$('id_dateofinteraction1').val('');
-			alert('a');
+			//alert('a');
 		}	  
 		else
 		{
 			$('id_dateofinteraction1').val('<%=date22%>');
 		}
-	   alert('<%=date33%>');
+	   //alert('<%=date33%>');
         if('<%=date33%>'=='01-01-1900')
 		{
 			$('id_dateofinteraction2').val('');
-			alert('a');
+			//alert('a');
 		}	  
 		else
 		{

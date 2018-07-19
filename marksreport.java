@@ -51,6 +51,7 @@ public class marksreport extends HttpServlet
 
 		if(req.getParameter("proceed")!=null)//if block only for proceed button
 		{
+			
 
 			//displaying table head with subjects loading dynamically----start
 			ResultSet subject_code=stmt.executeQuery("select Sub_Abbr from Subject where Sub_Year="+year+" and Sub_Semester="+semester);
@@ -168,7 +169,7 @@ public class marksreport extends HttpServlet
 
 
 
-			//semsester marks diplaying ---- start
+			//semsester marks displaying ---- start
 			out.print("<div class='row'><tr class='tbodyrow'><div class='col-sm-1'><td>"+exam_types[5]+"</td></div>");
 			ResultSet sem_marks=marks_statement.executeQuery("select Marks  from Student_Semester_Marks where Years="+year+" and Semester="+semester+" and Student_Code='"+roll_no+"' ;");
 			if(sem_marks.next())//using if-else because to print marks if they exist and if marks don't exist then we should print blank values
@@ -198,6 +199,7 @@ public class marksreport extends HttpServlet
 			out.print("</form></body></html>");
 
 		}
+		
 		
 		stmt.close();
 		marks_statement.close();

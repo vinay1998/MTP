@@ -51,7 +51,7 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<label for="rollno "><b>Roll No.:</b></label>
-						<input class="form-control" id="rollno" type="text" value="<%=(String)request.getSession().getAttribute("user_id")%>"  style="background-color:white;" readonly>
+						<input class="form-control" name="rollno"  id="rollno" type="text" value="<%=(String)request.getSession().getAttribute("user_id")%>"  style="background-color:white;" readonly>
 					</div>
 					<div class="col-sm-4">
 						<label for="studentname"><b>Student Name:</b></label>

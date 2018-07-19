@@ -49,6 +49,7 @@
   <link href="css/media-query.css" rel="stylesheet">
   <style>
 	body {
+		overflow:hidden;
 		height:100%;
 		background-image: url("img/background.jpg") ;
 		background-position: center;
@@ -290,7 +291,7 @@
 				  </a>
 		</li>
 		<li class="nav-item " data-toggle="tooltip" data-placement="right" title="My Journey" style="padding-top:1em;padding-bottom:1em;">
-				  <a class="nav-link-sub hover-color" href="myjourney.html" target="pages"  >
+				  <a class="nav-link-sub hover-color" href="myjourney.jsp" target="pages"  >
 					<i class="fa fa-fw fa-road "></i>
 					<span class="nav-link-text " >My Journey</span>
 				  </a>

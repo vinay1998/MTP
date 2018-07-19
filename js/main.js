@@ -1,5 +1,5 @@
  
-var ta,dt,d;	
+var ta=1,dt=1,d=1;	
  
 
  $(document).ready(function(){
@@ -203,10 +203,11 @@ var ta,dt,d;
 		$('.subsave-drop').each(function () {
 			 if($(this).val()!='Select')
 			 {
+				d=1;
 				
 			 }
 			 else
-			 {
+			 {    
 			      $('#save').attr('disabled',true);
 				  $('#save').prop('style','cursor:not-allowed;');
 				  $('#save').prop('title', 'Enable me by filling above fields');
@@ -214,7 +215,7 @@ var ta,dt,d;
 			 }
 		});
 		if($('#search').attr('disabled')!='disabled' && dt==1 && ta==1 && d==1)
-		{
+		{  
 			 $('#save').attr('disabled',false);
 			 $('#save').prop('style','cursor:pointer');
 			 $('#save').prop('title', 'Click me to Save Records');

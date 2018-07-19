@@ -134,7 +134,7 @@
 	  var d = new Date();  
       var present_year = d.getFullYear();<!-- year format 2018-->
 	  var present_month = d.getMonth() ; //month method returns '0' for 'January'
-	  alert(d);
+	  //alert(d);
 	   present_year=present_year%1000;<!-- 18 -->
 	 
 	   var diff=present_year-year + 1;
@@ -142,7 +142,7 @@
 	   if(present_month >= 5)//enabling from june(5) month 
 	   {
 	     diff=diff+1;
-	     alert(diff);
+	     //alert(diff);
 	   }
 	 while(diff<=t)
 	 {

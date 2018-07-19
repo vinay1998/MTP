@@ -49,6 +49,7 @@
   <link href="css/media-query.css" rel="stylesheet">
   <style>
 	body {
+		overflow: hidden;
 		height:100%;
 		background-image: url("img/background.jpg") ;
 		background-position: center;
@@ -77,44 +78,31 @@
 
 .preloader-1 {
   margin: 150px auto 0;
-  width: 66px;
+  margin-top: 250px;
+  margin-left: 45%;
+  width: 606px;
   height: 12px;
 }
-
-.preloader-2 {
-  margin: 200px auto 0;
-    width: 66px;
-  height: 12px;
-}
-
 
 
 .preloader-1 .line {
-  width: 1px;
-  height: 12px;
+  width: 2px;
+  height: 20px;
   background: #fff;
   margin: 0 1px;
   display: inline-block;
   animation: opacity-1 1000ms infinite ease-in-out;
 }
 
-.preloader-2 .line {
-  width: 1px;
-  height: 12px;
-  background: #fff;
-  margin: 0 1px;
-  display: inline-block;
-  animation: opacity-2 1000ms infinite ease-in-out;
-}
 
-.preloader-1 .line-1, .preloader-2 .line-1 { animation-delay: 800ms; }
-.preloader-1 .line-2, .preloader-2 .line-2 { animation-delay: 600ms; }
-.preloader-1 .line-3, .preloader-2 .line-3 { animation-delay: 400ms; }
-.preloader-1 .line-4, .preloader-2 .line-4 { animation-delay: 200ms; }
-.preloader-1 .line-6, .preloader-2 .line-6 { animation-delay: 200ms; }
-.preloader-1 .line-7, .preloader-2 .line-7 { animation-delay: 400ms; }
-.preloader-1 .line-8, .preloader-2 .line-8 { animation-delay: 600ms; }
-.preloader-1 .line-9, .preloader-2 .line-9 { animation-delay: 800ms; }
+.preloader-1 .line-1{ animation-delay: 800ms; }
+.preloader-1 .line-2{ animation-delay: 600ms; }
+.preloader-1 .line-3{ animation-delay: 400ms; }
+.preloader-1 .line-4{ animation-delay: 200ms; }
+.preloader-1 .line-6{ animation-delay: 200ms; }
+.preloader-1 .line-7{ animation-delay: 400ms; }
+.preloader-1 .line-8{ animation-delay: 600ms; }
+.preloader-1 .line-9{ animation-delay: 800ms; }
 
 @keyframes opacity-1 { 
   0% { 
@@ -169,7 +157,7 @@
     <div class="collapse navbar-collapse " id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="overflow-y:auto;">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="construction_page.html" target="pages">
+          <a class="nav-link" href="student_dashboard.html" target="pages">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
@@ -265,7 +253,7 @@
               <a href="campusinterviewtrainingreview.html" target="pages">Campus Interview Training Review</a>
             </li>
             <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Assessment Report</a>
+              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2" target="pages">Assessment Report</a>
               <ul class="sidenav-third-level collapse" id="collapseMulti2">
                 <li>
                   <a href="mockaptitudetest.html" target="pages">Mock Aptitude Test</a>
@@ -290,7 +278,7 @@
 				  </a>
 		</li>
 		<li class="nav-item " data-toggle="tooltip" data-placement="right" title="My Journey" style="padding-top:1em;padding-bottom:1em;">
-				  <a class="nav-link-sub hover-color" href="myjourney.html" target="pages"  >
+				  <a class="nav-link-sub hover-color" href="myjourney.jsp" target="pages"  >
 					<i class="fa fa-fw fa-road "></i>
 					<span class="nav-link-text " >My Journey</span>
 				  </a>
@@ -398,35 +386,14 @@
             <div class="input-group">
               <input class="form-control" list="search-pages" type="text" placeholder="Search for..." id="list">
                     <datalist id="search-pages" class="datalist" >
-						<option value="Mentor - Mentee" >
-						<option value="Mentor - Mentee Meetings">
-						<option value="Student Master Information">
-						<option value="SWOT Analysis">
-						<option value="Attendance">
-						<option value="Internal Marks" >
-						<option value="Mentor Reviews">
-						<option value="Internal Assessment Record">
-						<option value="Semester End Examination Result">
-						<option value="Industrial Visits">
-						<option value="Outstation Technical Visits" >
-						<option value="Summer Training Visits">
-						<option value="CCA Activities">
-						<option value="ECA Activities">
-						<option value="Cultivate Right Attitude">
-						<option value="Soft Skills" >
-						<option value="Campus Interview Training">
-						<option value="Campus Interview Training Review">
-						<option value="Mock Aptitude Test">
-						<option value="Mock Interviews">
-						<option value="Semester End Self Assessment Report">
-						<option value="Eligibility for Placements">
+						
 					</datalist>
 	   
 	   
 				<span class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <a target="pages"><button class="btn btn-primary btn-lg" type="button"id="page-search">
                   <i class="fa fa-search"></i>
-                </button>
+                </button></a>
               </span>
             </div>
           </form>
@@ -452,21 +419,10 @@
 	  <span class="line line-8"></span>
 	  <span class="line line-9"></span>
 	</div>
-	<div class="preloader-2" id="preloader-2">
-	  <span class="line line-1"></span>
-	  <span class="line line-2"></span>
-	  <span class="line line-3"></span>
-	  <span class="line line-4"></span>
-	  <span class="line line-5"></span>
-	  <span class="line line-6"></span>
-	  <span class="line line-7"></span>
-	  <span class="line line-8"></span>
-	  <span class="line line-9"></span>
-	  <div style="color:white">Loading</div>
-	</div>
+
 	<br/><br/><br/>
 	<div class="container-fluid contents" id="frame" style="position:relative;max-width:100%">
-      <iframe class="" src="construction_page.html" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" frameborder="0" name="pages" id="pages" ></iframe>
+      <iframe class="" src="student_dashboard.html" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" frameborder="0" name="pages" id="pages" ></iframe>
 	</div>
   </div>
     
@@ -548,9 +504,57 @@
 	    });
 	//------------
 
+	//links pages when search button is clicked----------
+ 	var flag=1;
+	$("#page-search").on("click",function(e){
+		 //alert("a"+$("#page-search").parent().attr("href")+"a");
+		 if(flag==1)
+		 { //alert("yes");
+		  e.preventDefault();
+		  $("#exampleAccordion > li > a > span , #exampleAccordion > li > ul > li > a").each(function(){
+			//alert($(this).text()+' '+$("#list").val());
+				if($("#list").val() == $(this).text())
+				{
+				  //alert("yes");
+				   if($(this).attr("href"))
+				   {
+					$("#page-search").parent().attr("href",$(this).attr("href"));
+				   }
+				   else
+				   {
+					 $("#page-search").parent().attr("href",$(this).parent().attr("href"));
+				   }		   
+					// alert("-"+$("#page-search").parent().attr("href"));
+                    flag=0;					
+					document.getElementById("page-search").click();
+					 
+				}
+			});
+		 }
+		 else
+		 {
+		   flag=1;
+		 }
+	});
+	$("#exampleAccordion > li > a > span , #exampleAccordion > li > ul > li > a").each(function(){
+		$('#search-pages').append('<option value="'+$(this).text()+'"></option>')
+	});
+	$('#search-pages').find('option[value="Dashboard"]').remove();
+	$('#search-pages').find('option[value="Mentoring"]').remove();
+	$('#search-pages').find('option[value="ECA & CCA"]').remove();
+	$('#search-pages').find('option[value="Training & Placement"]').remove();
+	
 	$('#search-pages > option').each(function(){
 		$(this).attr('disabled', 'disabled');
 	});
+	
+	$('#list').keyup(function() {
+        if (!$(this).value) {
+			$('#search-pages > option').each(function(){
+				$(this).attr('disabled', 'disabled');
+			});        
+        }
+    });
 	
 	$('#list').on("input",function(){
 		$('#search-pages > option').each(function(){

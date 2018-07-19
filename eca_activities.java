@@ -43,7 +43,7 @@ public class eca_activities extends HttpServlet
 		
 		//html common part html head complete part and body starting part
 		out.print("<html><head><link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'><link href='vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'></head><link href='vendor/datatables/dataTables.bootstrap4.css' rel='stylesheet'><link href='css/sb-admin.css' rel='stylesheet'><link rel='stylesheet' type='text/css' href='css/main.css'><link rel='stylesheet' type='text/css' href='css/util.css'>");
-		out.print("<body>");
+		out.print("<body class='sfbg'>");
 		out.print("<form action='ecaactivities' target='_self'>");
 
 		if(req.getParameter("save")!=null)
@@ -84,10 +84,10 @@ public class eca_activities extends HttpServlet
 				row_id.next();
 				if(Integer.parseInt(req.getParameter("edit"))==row_id.getInt(1))
 				{
-					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td><input type=text name='eca1' value='"+rs.getString(1)+"'></td></div><div class='col-sm-7'><td><textarea rows='4' cols='100' name='interests1'>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='update' value="+row_id.getInt(1)+">Update</button></td></div></tr>");
+					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td><input class='form-control' type=text name='eca1' value='"+rs.getString(1)+"'></td></div><div class='col-sm-7'><td><textarea class='form-control' rows='4' cols='100' name='interests1'>"+rs.getString(2)+"</textarea></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='update' value="+row_id.getInt(1)+">Update</button></td></div></tr>");
 				}
 				else		
-					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><form><textarea rows='4' cols='100' disabled>"+rs.getString(2)+"</textarea></form></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='edit' disabled>Edit</button></td></div></tr>");
+					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td>"+rs.getString(1)+"</td></div><div class='col-sm-7'><td><form><textarea class='form-control' rows='4' cols='100' disabled>"+rs.getString(2)+"</textarea></form></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='edit' disabled>Edit</button></td></div></tr>");
 				
 			}
 			
@@ -116,7 +116,7 @@ public class eca_activities extends HttpServlet
 				while(rs.next())
 				{	
 					row_id.next();
-					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td><p>"+rs.getString(1)+"</p></td></div><div class='col-sm-7'><td><form><textarea rows='4' cols='100' disabled>"+rs.getString(2)+"</textarea></form></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='edit' value="+row_id.getInt(1)+">Edit</button></td></div></tr>");
+					out.print("<tr class='tbodyrow'><div class='col-sm-4'><td><p>"+rs.getString(1)+"</p></td></div><div class='col-sm-7'><td><form><textarea class='form-control' rows='4' cols='100' disabled>"+rs.getString(2)+"</textarea></form></td></div><div class='col-sm-1'><td><button type='submit' class='btn btn-primary' name='edit' value="+row_id.getInt(1)+">Edit</button></td></div></tr>");
 							
 				}
 				out.print("</div></tbody></table>");

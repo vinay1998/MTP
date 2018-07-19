@@ -9,6 +9,7 @@
 	
 
 	//jdbc logic section
+		try{
 
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		String dbURL = "jdbc:sqlserver://10.45.29.254;DatabaseName=VNR_Students_Record";
@@ -46,10 +47,16 @@
 		}
 		mentor_stmt = conn.createStatement();
 		
+
 		if(mentor_id==null)
 		{
 			response.sendRedirect("no_mentor.jsp");
 		}
+		
+
+	//jdbc logic section
+
+		
 		
 		ResultSet mentor_rs=mentor_stmt.executeQuery("select Staff_Name,Date_Of_Birth,Designation,Academic_Qualification,Papers_National,Papers_International,Conferences_National,Conferences_International,Memberships_Of_Prof_Bodies,Consultations,Research_Interests,Other_Interests from Staff_Master where Staff_Code='"+mentor_id+"'");
 		mentor_rs.next();
@@ -262,7 +269,13 @@
 	</form>
 	</div>
 	
-      
+      <%
+		}
+	  catch(Exception e)
+	  {
+		out.print("<h3>Mentee not yet Assigned</h3>");
+	  }
+	  %>
       
       
     <!-- /.container-fluid-->

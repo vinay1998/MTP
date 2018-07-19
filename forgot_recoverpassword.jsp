@@ -24,7 +24,7 @@
 
 
 </head>
-<body>
+<body class="mfbg" >
 	
 	<div class="limiter">
 		<div class="container-login100 bg-success ">

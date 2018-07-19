@@ -115,7 +115,9 @@
 </style>
 </head>
 
-<body class="fixed-nav " style="background-color: #ffffff;" id="page-top">
+<body class="mfbg " id="page-top">
+
+
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" id="mainNav">
 	<img src="img/vnrvjiet.jpg" class="img-responsive" alt="VNR VJIET" height="3%" width="3%">&nbsp;&nbsp;&nbsp;
@@ -310,7 +312,7 @@
 	  <div style="color:white">Loading</div>
 	</div>
 	<div class="container-fluid contents" id="frame" style="position:relative;max-width:100%">
-      <iframe class="" src="adminlogin.html" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" frameborder="0" name="pages" id="pages" ></iframe>
+      <iframe class="" src="mentorindex.jsp" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" frameborder="0" name="pages" id="pages" ></iframe>
 	</div>
   </div>
     
@@ -334,13 +336,12 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
             </button>
           </div>
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="Login\login.html">Logout</a>
+            <a class="btn btn-primary" href="logout.jsp">Logout</a>
           </div>
         </div>
       </div>

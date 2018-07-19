@@ -38,7 +38,7 @@
 
 </head>
 
-<body  id="page-top">
+<body  class="mfbg" id="page-top">
   
   
       <!-- Breadcrumbs-->

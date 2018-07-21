@@ -40,7 +40,7 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb" style="background-color:transparent;">
         <li class="breadcrumb-item">
-          <a href="index.html" target="_top">Home</a>
+          <a href="index.jsp" target="_top">Home</a>
         </li>
         <li class="breadcrumb-item active" >Mentoring&nbsp; / &nbsp;Internal Marks</li>
     </ol>	

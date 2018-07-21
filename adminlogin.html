@@ -19,7 +19,6 @@
   <link href="css/media-query.css" rel="stylesheet">
   <style>
 	body {
-		 overflow:hidden;
 		height:100%;
 		background-image: url("img/background.jpg") ;
 		background-position: center;
